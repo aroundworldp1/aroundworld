@@ -1,15 +1,13 @@
 <template>
     <!--轮播图组件-->
-    <div>
+    <div class="bigimg"> <!--大图-->
+       
         
     </div>
 </template>
 <script>
 export default {
-    // created(){
-    //     var showlogin=this.$route.query.showlogin
-    //     console.log(showlogin);
-    // },
+    
     data(){
         return{
            
@@ -23,5 +21,7 @@ export default {
 </script>
 
 <style scoped>
-
+.bigimg{
+    
+}
 </style>
