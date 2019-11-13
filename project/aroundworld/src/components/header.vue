@@ -6,10 +6,7 @@
 </template>
 <script>
 export default {
-    // created(){
-    //     var showlogin=this.$route.query.showlogin
-    //     console.log(showlogin);
-    // },
+    
     data(){
         return{
            
