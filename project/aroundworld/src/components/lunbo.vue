@@ -1,7 +1,7 @@
 <template>
-    <!--导航条组件-->
+    <!--轮播图组件-->
     <div>
-
+        
     </div>
 </template>
 <script>
