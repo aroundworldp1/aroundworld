@@ -1,5 +1,8 @@
 <template>
-    <div><my-header></my-header></div>
+    <div>
+        <my-header></my-header>
+        <lunbo></lunbo>
+    </div>
 </template>
 <script>
 export default {
