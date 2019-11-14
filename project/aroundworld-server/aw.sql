@@ -11,23 +11,28 @@ create table user(
     birthday   date,
     email varchar(20),
     phone varchar(16) not null unique,
-    avatar varchar(16)
+    avatar varchar(16),
+    isguan int 
 );
 create table region(
-    rid int(6) not null primary key,
+    rid int(6) not null primary key AUTO_INCREMENT,
     rname varchar(16) not null,
     info text,
     rpic varchar(16)
 );
 create table spot(
+<<<<<<< HEAD
     sid int(6) not null primary key,
+=======
+    id int(6) not null primary key AUTO_INCREMENT,
+>>>>>>> cb9318943bb8c7eb68bf1acbd0142b2d23dce0d6
     sname varchar(16) not null,
     aera varchar(16) not null,
     info text,
     spic varchar(16)
 );
 create table article(
-    aid int(6) not null primary key,
+    aid int(6) not null primary key AUTO_INCREMENT,
     writer varchar(16),
     title varchar(32),
     puttime date,
@@ -36,7 +41,7 @@ create table article(
     apic varchar(16)
 );
 create table comment(
-    cid int(6) not null primary key,
+    cid int(6) not null primary key AUTO_INCREMENT,
     writer varchar(16),
     puttime date,
     content text,
@@ -44,12 +49,12 @@ create table comment(
     article varchar(16)
 );
 /*插入数据用户表*/
-INSERT INTO user VALUES('1','kangkang','1','45566','1996-12-31','24555@qq.com','1554469','s');
-INSERT INTO user VALUES('2','sun','0','45866','1998-12-31','24355@qq.com','1556469','s');
-INSERT INTO user VALUES('3','faker','0','25566','1999-12-31','22555@qq.com','1554369','s');
-INSERT INTO user VALUES('4','libai','1','35566','1998-12-31','28555@qq.com','1854469','s');
-INSERT INTO user VALUES('5','goukon','0','95566','1993-12-31','94555@qq.com','1154469','s');
-INSERT INTO user VALUES('6','shanshan','1','85566','1997-12-31','64555@qq.com','1354469','s');
+INSERT INTO user VALUES('1','kangkang','1','45566','1996-12-31','24555@qq.com','1554469','s',1);
+INSERT INTO user VALUES('2','sun','0','45866','1998-12-31','24355@qq.com','1556469','s',1);
+INSERT INTO user VALUES('3','faker','0','25566','1999-12-31','22555@qq.com','1554369','s',0);
+INSERT INTO user VALUES('4','libai','1','35566','1998-12-31','28555@qq.com','1854469','s',0);
+INSERT INTO user VALUES('5','goukon','0','95566','1993-12-31','94555@qq.com','1154469','s',0);
+INSERT INTO user VALUES('6','shanshan','1','85566','1997-12-31','64555@qq.com','1354469','s',1);
 /*插入数据地区表*/
 INSERT INTO region VALUES('1','China','sswjdjdsdbkbhhbs','sdsd');
 INSERT INTO region VALUES('2','England','sswjdjdsdbkbhhbs','sdsd');
