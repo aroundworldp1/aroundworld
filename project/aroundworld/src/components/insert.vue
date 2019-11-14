@@ -5,7 +5,6 @@
         性别:<el-radio v-model="radio" label="1">男</el-radio>
         <el-radio v-model="radio" label="2">女</el-radio><br>
         生日:<el-date-picker v-model="date" type="date" placeholder="选择日期"></el-date-picker><br>
-        头像:<el-avatar icon="el-icon-user-solid"></el-avatar><br>
         手机号码:<el-input v-model="phone" placeholder="请输入手机号码"></el-input>
         邮箱:<el-input v-model="email" placeholder="请输入邮箱"></el-input>
         <el-button @click="insert">注册</el-button>
