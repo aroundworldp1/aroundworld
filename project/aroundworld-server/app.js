@@ -43,3 +43,20 @@ server.use(express.static("public"))
 //9:启动监听端口  3000
 server.listen(3000);
 
+server.get("/login",(req,res)=>{
+   var uname=req.query.uname;
+   var upwd=req.query.upwd;
+   console.log(1+":"+uname+":"+upwd);
+   var sql="SELECT id FROM user WHERE uname=? AND upwd=?";
+   pool.query(sql,[uname,upwd],(err,result)=>{
+      if(err)throw err;
+      console.log(result);
+      if(result.length==0){
+         res.send({code:-1,msg:"用户名或密码有误"});
+      }else{
+         var uid=result[0].id;
+         req.session.uid=uid;
+         res.send({code:1,msg:"登录成功"});
+      }
+   })
+})

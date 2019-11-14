@@ -32,6 +32,18 @@ export default {
                 });
                 return;
             }
+            var url="login";
+            var obj={uname:u,upwd:p};
+            this.axios.get(url,{params:obj}).then(res=>{
+                if(res.data.code===1){
+                    this.$message("登录成功");
+                }else{
+                    this.$message("用户名和密码有误");
+                }
+            })
+            .catch(err=>{
+                console.log(err)
+            })
         }
     }
 }
