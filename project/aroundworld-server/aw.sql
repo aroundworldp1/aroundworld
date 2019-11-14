@@ -4,7 +4,7 @@ drop database if exists aw;
 create database aw CHARSET=UTF8;
 use aw;
 create table user(
-    id int(6) not null primary key,
+    uid int(6) not null primary key auto_increment,
     uname varchar(16) not null,
     gender bool,
     upwd  varchar(16) not null,
@@ -20,7 +20,7 @@ create table region(
     rpic varchar(16)
 );
 create table spot(
-    id int(6) not null primary key,
+    sid int(6) not null primary key,
     sname varchar(16) not null,
     aera varchar(16) not null,
     info text,

@@ -58,17 +58,3 @@ server.get("/login",(req,res)=>{
       }
    })
 })
-server.post("/insert",(req,res)=>{
-   var uname=req.query.uname;
-   var upwd=req.query.upwd;
-   var gender=req.query.gender;
-   var birthday=req.query.birthday;
-   var phone=req.query.phone;
-   var email=req.query.email;
-   var sql="INSERT INTO(uname,upwd,gender,birthday,phone,email) user VALUES(?,?,?,?,?,?)";
-   pool.query(sql,[uname,upwd,gender,birthday,phone,email],(err,resutl)=>{
-      if(err)throw err;
-      console.log(resutl);
-   })
-   res.send({code:1,msg:"注册成功"})
-})
