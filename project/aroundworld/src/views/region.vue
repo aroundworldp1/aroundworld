@@ -1,6 +1,5 @@
 <template>
-    <div>
-        <my-header></my-header>
+    <div>   
         <lunbo></lunbo>
     </div>
 </template>
