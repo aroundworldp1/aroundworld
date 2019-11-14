@@ -46,11 +46,9 @@ server.listen(3000);
 server.get("/login",(req,res)=>{
    var uname=req.query.uname;
    var upwd=req.query.upwd;
-   console.log(1+":"+uname+":"+upwd);
    var sql="SELECT id FROM user WHERE uname=? AND upwd=?";
    pool.query(sql,[uname,upwd],(err,result)=>{
       if(err)throw err;
-      console.log(result);
       if(result.length==0){
          res.send({code:-1,msg:"用户名或密码有误"});
       }else{
@@ -59,4 +57,18 @@ server.get("/login",(req,res)=>{
          res.send({code:1,msg:"登录成功"});
       }
    })
+})
+server.post("/insert",(req,res)=>{
+   var uname=req.query.uname;
+   var upwd=req.query.upwd;
+   var gender=req.query.gender;
+   var birthday=req.query.birthday;
+   var phone=req.query.phone;
+   var email=req.query.email;
+   var sql="INSERT INTO(uname,upwd,gender,birthday,phone,email) user VALUES(?,?,?,?,?,?)";
+   pool.query(sql,[uname,upwd,gender,birthday,phone,email],(err,resutl)=>{
+      if(err)throw err;
+      console.log(resutl);
+   })
+   res.send({code:1,msg:"注册成功"})
 })
