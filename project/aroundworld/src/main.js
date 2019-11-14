@@ -4,11 +4,13 @@ import router from './router'
 import store from './store'
 import header from './components/header'
 import lunbo from './components/lunbo'
+import footer from './components/footer'
 
 
 
 Vue.component('my-header',header);
 Vue.component('lunbo',lunbo);
+Vue.component('my-footer',footer);
 
 
 
