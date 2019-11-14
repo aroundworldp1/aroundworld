@@ -39,13 +39,16 @@ export default {
     data(){
         return{
            lunbotu:1,
+           xx:document.body.scrollTop,
         }
     },
     methods:{ 
        enter(i){
            this.lunbotu=i;
        }
-    }  
+    }, watch: {
+        
+  }
     
 }
 </script>
@@ -77,6 +80,7 @@ export default {
     background-color: rgba(240, 248, 255, 0.801);
 }
 .dark{
+    
     width: 100%;
     height: 790px;
     background-color: rgba(0, 0, 0, 0.39);
@@ -104,7 +108,8 @@ export default {
     font-size: 30px;
     line-height: 1.6em;
 }
-.call{position: absolute;
+.call{
+    position: absolute;
     z-index: -1;
     height: 790px;
     width: 100%;

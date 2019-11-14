@@ -1,51 +1,109 @@
 <template>
     <!--导航条组件-->
-    <div>
-        <div class="line"></div>
-        <el-menu
-        :default-active="activeIndex2"
-        class="el-menu-demo"
-        mode="horizontal"
-        @select="handleSelect"
-        background-color="#545c64"
-        text-color="#fff"
-        active-text-color="#ffd04b">
-        <el-menu-item index="1">处理中心</el-menu-item>
-        <el-submenu index="2">
-            <template slot="title">我的工作台</template>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
-            <el-menu-item index="2-3">选项3</el-menu-item>
-            <el-submenu index="2-4">
-            <template slot="title">选项4</template>
-            <el-menu-item index="2-4-1">选项1</el-menu-item>
-            <el-menu-item index="2-4-2">选项2</el-menu-item>
-            <el-menu-item index="2-4-3">选项3</el-menu-item>
-            </el-submenu>
-        </el-submenu>
-        <el-menu-item index="3">消息中心</el-menu-item>
-        <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
-        </el-menu>
+    <div id="container"> 
+    <div id="dhl">
+      <a href="">环球</a>
+      <div id="dh">
+        <ul>
+          <li><a href="">我去恶趣味</a></li>
+          <li><a href="">4564</a></li>
+          <li><a href="">7897987</a></li>
+          <li><a href="">sdasd</a></li>
+        </ul>
+      </div>
     </div>
+
+    <div id="container2">
+        <div id="dh2">
+            <a href="">环球</a>
+            <div id="dh3">
+              <ul>
+                <li><a href="">我去恶趣味</a></li>
+                <li><a href="">4564</a></li>
+                <li><a href="">7897987</a></li>
+                <li><a href="">sdasd</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+    
+  </div>
 </template>
-<script>
-export default {
-    
-    data(){
-        return{
-            activeIndex: '1',
-            activeIndex2: '1'
-        }
-    },
-    methods:{ 
-        handleSelect(key, keyPath){
-        console.log(key, keyPath);
-      }
-    }  
-    
-}
-</script>
 
 <style scoped>
+    *{margin:0;padding:0}
+    li{list-style: none;}
+    a{text-decoration:none;}
+    #dhl{
+      width:100%;
+      height:88px;
+      /* color:#f0f0f0; */
+      font-size:16px;
+      opacity: 1 !important;
+      /* display: block; */
+      position: absolute;
+      /* margin-top:0%; */
+      display: flex;
+      justify-content: space-between;
+    }
+    #dh{
+      width:75%;
+    }
+    #dh>ul>li{
+      float: right;
+      margin-right:5%;
+      padding-right:5%;
+      padding-top:2%;
 
+    }
+    #dh>ul>li>a{
+      color:#f0f0f0;
+    }
+    #dhl>a{
+      width:5%;
+      padding-top:1.5%;
+      padding-left:15%;
+      color:#ffffff;
+    }
+    #container>img{
+      width:100%;
+    }
+
+
+    /* 导航二 */
+    #dh2{
+      width:100%;
+      height:88px;
+      /* color:#f0f0f0; */
+      background:#fff;
+      font-size:16px;
+      /* display:none; */
+      /* opacity: 0; */
+      display: block;
+      position: absolute;
+      margin-top:0%;
+      display: flex;
+      justify-content: space-between;
+      z-index:-1;
+    }
+    #dh3{
+      width:75%;
+    }
+    #dh3>ul>li{
+      float: right;
+      margin-right:5%;
+      padding-right:5%;
+      padding-top:2%;
+
+    }
+    #dh3>ul>li>a{
+      color:#000;
+    }
+    #dh2>a{
+      width:5%;
+      padding-top:1.5%;
+      padding-left:15%;
+      color:#000;
+    }
 </style>

@@ -1,7 +1,9 @@
 <template>
     <div>   
+        <my-header></my-header>
         <lunbo></lunbo>
-        <my-footer></my-footer>
+        
+        <mokuai></mokuai><my-footer></my-footer>
     </div>
 </template>
 <script>
