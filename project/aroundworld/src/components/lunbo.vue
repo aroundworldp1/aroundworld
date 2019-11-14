@@ -87,7 +87,7 @@ export default {
     height: 50%;
      padding-top: 10%;
      left: 8%;right: 10%;
-     
+     animation: go_out 0.5s;
 }
 .dark .p1{
     margin: 0;
@@ -124,5 +124,12 @@ export default {
   {
      0% {opacity: 0.5; transform: scale(0.9);}
      100%{opacity: 1; transform: scale(1);}
+  }
+  @keyframes go_out
+  {
+     0% {opacity: 0.5; transform: scale(0.5);}
+     
+     100%{opacity: 1; transform: scale(1);}
+
   }
 </style>
