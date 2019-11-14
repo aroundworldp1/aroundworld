@@ -118,6 +118,11 @@ export default {
 .call img{
     width:100%;
 	height:auto;
-
+    animation: go_in 2s;
 }
+ @keyframes go_in
+  {
+     0% {opacity: 0.5; transform: scale(0.9);}
+     100%{opacity: 1; transform: scale(1);}
+  }
 </style>
