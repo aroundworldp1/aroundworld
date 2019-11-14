@@ -2,30 +2,17 @@
     <!--导航条组件-->
     <div id="container"> 
     <div id="dhl">
-      <a href="">环球</a>
+      <a href="">Around World</a>
       <div id="dh">
         <ul>
-          <li><a href="">我去恶趣味</a></li>
-          <li><a href="">4564</a></li>
-          <li><a href="">7897987</a></li>
-          <li><a href="">sdasd</a></li>
+          <li><a href="">登陆</a></li>
+          <li><a href="">返回首页</a></li>
+         
         </ul>
       </div>
     </div>
 
-    <div id="container2">
-        <div id="dh2">
-            <a href="">环球</a>
-            <div id="dh3">
-              <ul>
-                <li><a href="">我去恶趣味</a></li>
-                <li><a href="">4564</a></li>
-                <li><a href="">7897987</a></li>
-                <li><a href="">sdasd</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
+    
 
     
   </div>
@@ -55,13 +42,16 @@
       margin-right:5%;
       padding-right:5%;
       padding-top:2%;
-
+    }
+    #dh>ul{
+      margin-right:15%;
+      padding-right:5%;
     }
     #dh>ul>li>a{
       color:#f0f0f0;
     }
     #dhl>a{
-      width:5%;
+      width:15%;
       padding-top:1.5%;
       padding-left:15%;
       color:#ffffff;

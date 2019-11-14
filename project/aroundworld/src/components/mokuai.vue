@@ -143,7 +143,9 @@
    .gtu img{
      width:415.75px;
      height: 400px;
+     animation: proRotate  ease-in-out 500ms alternate none 1;
    }
+     
    .gtu{
      width: 415.75px;
      height: 400px;
@@ -173,6 +175,7 @@
    }
    .gtu:hover .gtn{
      background-color:#ffffff;
+     animation: prokkk  1s ;
    }
    .gtu:hover .price{
      color: #000000;
@@ -218,6 +221,13 @@
    align-items: center;
    align-content: center;
    }
-   
+   @keyframes proRotate { 
+    0%{transform:perspective(800px) rotateY(120deg);} 
+    100%{transform:perspective(800px) rotateY(0deg);} 
+}
+@keyframes prokkk { 
+    0%{transform:perspective(400px) rotateY(10deg);} 
+    100%{transform:perspective(400px) rotateY(0deg);} 
+}
 </style>
 

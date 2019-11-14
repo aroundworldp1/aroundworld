@@ -89,7 +89,7 @@ export default {
     position: relative;
     width: 50%;
     height: 50%;
-     padding-top: 10%;
+     padding-top: 8%;
      left: 8%;right: 10%;
      animation: go_out 0.5s;
 }
@@ -117,7 +117,7 @@ export default {
     display:flex;
 	align-items:center; 
 	justify-content:center;
-    animation: fadeIn  ease-in-out 500ms alternate none 1;
+    animation: prokkk 2s;
     overflow: hidden;
 }
 .call img{
@@ -137,4 +137,9 @@ export default {
      100%{opacity: 1; transform: scale(1);}
 
   }
+  @keyframes prokkk { 
+    0%{transform:perspective(800px) rotateY(1deg);} 
+    50%{transform:perspective(800px) rotateY(-1deg);} 
+    100%{transform:perspective(800px) rotateY(0deg);} 
+}
 </style>
