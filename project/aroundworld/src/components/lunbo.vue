@@ -117,13 +117,13 @@ export default {
     display:flex;
 	align-items:center; 
 	justify-content:center;
-    animation: fadeIn  ease-in-out 500ms alternate none 1;
+    animation: prokkk 1;
     overflow: hidden;
 }
 .call img{
     width:100%;
 	height:auto;
-    animation: go_in 2s;
+    animation: prokkk 1s;
 }
  @keyframes go_in
   {
@@ -137,4 +137,9 @@ export default {
      100%{opacity: 1; transform: scale(1);}
 
   }
+  @keyframes prokkk { 
+    0%{transform:perspective(1000px) rotateY(1deg);} 
+    50%{transform:perspective(1000px) rotateY(-1deg);} 
+    100%{transform:perspective(1000px) rotateY(0deg);} 
+}
 </style>

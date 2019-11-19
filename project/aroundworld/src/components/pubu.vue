@@ -37,7 +37,7 @@
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam ullam aperiam ipsum, iusto deleniti alias ab, libero doloremque sit asperiores quaerat eos iste blanditiis aut possimus nihil nemo soluta culpa, eum nobis veritatis quod velit molestiae. Nobis ab blanditiis inventore quas iste porro rem non culpa amet, obcaecati nesciunt harum?</p>
     </div>
     <div class="box">
-      <img src="" alt="">
+      <img src="./../../public/img/bg_2.jpg" alt="">
       <h2>你好</h2>
       <p>Lorem, ipsum dolor sit amet consectquaerat eos iste blanditiis aut possimus nihil nemo soluta culpa, eum nobis veritatis quod velit molestiae. Nobis ab blanditiis inventore quas iste porro rem non culpa amet, obcaecati nesciunt harum?</p>
     </div>

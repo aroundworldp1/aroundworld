@@ -147,7 +147,7 @@
    .gtu{
      width: 415.75px;
      height: 400px;
-   
+      animation: proRotate 1.5s;
    }
   .gtu::after{
     opacity: 0.5;
@@ -169,10 +169,14 @@
    }
    .gtn{
      text-align: left;
-    
+     
+   }
+   .gtu:hover img{
+     animation: prokkk 1.5s;
    }
    .gtu:hover .gtn{
      background-color:#ffffff;
+     animation: go_out 1.5s;
    }
    .gtu:hover .price{
      color: #000000;
@@ -218,6 +222,31 @@
    align-items: center;
    align-content: center;
    }
-   
+@keyframes proRotate { 
+    0%{transform:perspective(1800px) rotateY(180deg);} 
+    100%{transform:perspective(1800px) rotateY(0deg);} 
+}
+@keyframes prokkk { 
+    0%{transform:perspective(1000px) rotateY(15deg);} 
+    50%{transform:perspective(1000px) rotateY(-15deg);} 
+    100%{transform:perspective(1000px) rotateY(0deg);} 
+}
+@keyframes fadeIn {
+    0% { opacity: 0.7; /*初始状态 透明度为0*/ }
+    50% { opacity: 0.9; /*中间状态 透明度为0*/ }
+    100% { opacity: 1; /*结尾状态 透明度为1*/}
+}
+@keyframes go_in
+  {
+     0% {opacity: 0.5; transform: scale(0.9);}
+     100%{opacity: 1; transform: scale(1);}
+  }
+  @keyframes go_out
+  {
+     0% {opacity: 0.9; transform: scale(0.9);}
+     
+     100%{opacity: 1; transform: scale(1);}
+
+  }
 </style>
 
