@@ -63,7 +63,6 @@ server.get("/login",(req,res)=>{
 })
 
 server.post("/insert",(req,res)=>{
-   console.log(req.body);
    var uname=req.body.uname;
    var upwd=req.body.upwd;
    var gender=req.body.gender;
@@ -73,7 +72,6 @@ server.post("/insert",(req,res)=>{
    var sql="INSERT INTO user(uname,upwd,gender,birthday,email,phone) values(?,?,?,?,?,?)";
    pool.query(sql,[uname,upwd,gender,birthday,email,phone],(err,result)=>{
       if(err)throw err;
-      console.log(result);
       if(result.affectedRows==1){
          res.send({code:1,msg:"注册成功"});
          return;
