@@ -42,19 +42,43 @@ server.use(session({
 server.use(express.static("public"))
 //9:启动监听端口  3000
 server.listen(3000);
+var bodyParser = require('body-parser')
+server.use(bodyParser.urlencoded({ extended: false }))
+server.use(bodyParser.json())
 
 server.get("/login",(req,res)=>{
    var uname=req.query.uname;
    var upwd=req.query.upwd;
-   var sql="SELECT id FROM user WHERE uname=? AND upwd=?";
+   var sql="SELECT uid FROM user WHERE uname=? AND upwd=?";
    pool.query(sql,[uname,upwd],(err,result)=>{
       if(err)throw err;
       if(result.length==0){
          res.send({code:-1,msg:"用户名或密码有误"});
       }else{
-         var uid=result[0].id;
+         var uid=result[0].uid;
          req.session.uid=uid;
          res.send({code:1,msg:"登录成功"});
+      }
+   })
+})
+
+server.post("/insert",(req,res)=>{
+   console.log(req.body);
+   var uname=req.body.uname;
+   var upwd=req.body.upwd;
+   var gender=req.body.gender;
+   var birthday=req.body.birthday;
+   var email=req.body.email;
+   var phone=req.body.phone;
+   var sql="INSERT INTO user(uname,upwd,gender,birthday,email,phone) values(?,?,?,?,?,?)";
+   pool.query(sql,[uname,upwd,gender,birthday,email,phone],(err,result)=>{
+      if(err)throw err;
+      console.log(result);
+      if(result.affectedRows==1){
+         res.send({code:1,msg:"注册成功"});
+         return;
+      }else{
+         res.send({code:-1,msg:"注册失败"})
       }
    })
 })
