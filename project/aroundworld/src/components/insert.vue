@@ -3,8 +3,8 @@
     <div class="motai">
         用户名:<el-input v-model="uname" placeholder="请输入用户名"></el-input>
         密码:<el-input v-model="password" placeholder="请输入密码"></el-input>
-        性别:<el-radio v-model="radio" label="1">男</el-radio>
-        <el-radio v-model="radio" label="2">女</el-radio><br>
+        性别:<el-radio v-model="gender" label="1">男</el-radio>
+        <el-radio v-model="gender" label="2">女</el-radio><br>
         生日:<el-date-picker v-model="date" type="date" placeholder="选择日期"></el-date-picker><br>
         手机号码:<el-input v-model="phone" placeholder="请输入手机号码"></el-input>
         邮箱:<el-input v-model="email" placeholder="请输入邮箱"></el-input>
@@ -18,7 +18,7 @@ export default {
         return{
             uname:"",
             password:"",
-            radio:"1",
+            gender:"1",
             date:"",
             phone:"",
             email:""
@@ -27,16 +27,16 @@ export default {
     methods:{
         insert(){
             var reg1=/^[a-z0-9]{4,12}$/i;
-            var u=this.uname;
-            var p=this.password;
-            if(!reg1.test(u)){
+            var uname=this.uname;
+            var upwd=this.password;
+            if(!reg1.test(uname)){
                 this.$message({
                     message:"用户名格式不正确",
                     type:"warning"
                 });
                 return;
             }
-            if(!reg1.test(p)){
+            if(!reg1.test(upwd)){
                 this.$message({
                     message:"密码格式不正确",
                     type:"warning"
@@ -61,6 +61,20 @@ export default {
                 });
                 return;
             }
+            var gender=this.gender;
+            var birthday=this.birthday;
+            var url="insert";
+            var obj={uname:uname,upwd:upwd,gender:gender,birthday:birthday,email:email,phone:phone};
+            this.axios.post(url,obj).then(res=>{
+                if(res.data.code===1){
+                    this.$message("注册成功");
+                }else{
+                    this.$message("注册失败")
+                }
+            })
+            .catch(err=>{
+                console.log(err)
+            })
         }
     }
 }
