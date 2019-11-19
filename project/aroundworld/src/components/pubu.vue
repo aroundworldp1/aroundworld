@@ -1,5 +1,4 @@
 <template><div>
-<h2>热门地区评论</h2>
     <div class="container">
     <div class="box">
       <img src="./../../public/img/product_5d786606d9b7b.jpg" alt="">
@@ -7,7 +6,7 @@
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam ullam aperiam ipsum, iusto deleniti alias ab, libero doloremque sit asperiores quaerat eos iste blanditiis aut possimus nihil nemo soluta culpa, eum nobis veritatis quod velit molestiae. Nobis ab blanditiis inventore quas iste porro rem non culpa amet, obcaecati nesciunt harum?</p>
     </div>
     <div class="box">
-      <img src='' alt="">
+      <img src='./../../public/img/babyFade10.png' alt="">
       <h2>你好</h2>
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam ullam aperiam ipsum, iusto deleniti alias ab, libero doloremque sit asperiores quaerat eos iste blanditiis aut possimus nihil nemo soluta culpa, eum nobis veritatis quod velit molestiae. Nobis ab blanditiis inventore quas iste porro rem non culpa amet, obcaecati nesciunt harum?</p>
     </div>
@@ -17,7 +16,7 @@
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam ullam aperiam ipsum, iusto deleniti alias ab, libero doloremque sit asperiores quaerat eos iste blanditiis aut possimus nihil nemo soluta culpa, eum nobis veritatis quod velit molestiae. Nobis ab blanditiis inventore quas iste porro rem non culpa amet, obcaecati nesciunt harum?</p>
     </div>
     <div class="box">
-      <img src="" alt="">
+      <img src="./../../public/img/product_5d7866338d1a4.jpg" alt="">
       <h2>你好</h2>
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam ullam aperiam ipsum, iusto deleniti alias ab, libero doloremque sit asperiores quaerat eos iste blanditiis aut possimus nihil nemo soluta culpa, eum nobis veritatis quod velit molestiae. Nobis ab blanditiis inventore quas iste porro rem non culpa amet, obcaecati nesciunt harum?</p>
     </div>
@@ -27,7 +26,7 @@
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam ullam aperiam ipsum, iusto deleniti alias ab, libero doloremque sit asperiores quaerat eos iste blanditiis aut possimus nihil nemo soluta culpa, eum nobis veritatis quod velit molestiae. Nobis ab blanditiis inventore quas iste porro rem non culpa amet, obcaecati nesciunt harum?</p>
     </div>
     <div class="box">
-      <img src="" alt="">
+      <img src="./../../public/img/babyFade10.png" alt="">
       <h2>你好</h2>
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam ullam aperiam ipsum, iusto deleniti alias ab, libero doloremque sit asperiores quaerat eos iste blanditiis aut possimus nihil nemo soluta culpa, eum nobis veritatis quod velit molestiae. Nobis ab blanditiis inventore quas iste porro rem non culpa amet, obcaecati nesciunt harum?</p>
     </div>
@@ -37,7 +36,7 @@
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam ullam aperiam ipsum, iusto deleniti alias ab, libero doloremque sit asperiores quaerat eos iste blanditiis aut possimus nihil nemo soluta culpa, eum nobis veritatis quod velit molestiae. Nobis ab blanditiis inventore quas iste porro rem non culpa amet, obcaecati nesciunt harum?</p>
     </div>
     <div class="box">
-      <img src="./../../public/img/bg_2.jpg" alt="">
+      <img src="./../../public/img/product_5d7866338d1a4.jpg" alt="">
       <h2>你好</h2>
       <p>Lorem, ipsum dolor sit amet consectquaerat eos iste blanditiis aut possimus nihil nemo soluta culpa, eum nobis veritatis quod velit molestiae. Nobis ab blanditiis inventore quas iste porro rem non culpa amet, obcaecati nesciunt harum?</p>
     </div>
@@ -73,8 +72,8 @@ export default {
       
     }
     .container .box:hover{
-      border: solid 1px rgba(0, 0, 0, 0.178);
-      box-shadow: rgba(109, 248, 218, 0.5)  5px 10px 20px  ;
+      
+      box-shadow: rgba(77, 173, 152, 0.733)  5px 10px 20px  ;
     }
     
     .container .box img{
