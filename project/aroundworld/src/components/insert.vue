@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div class="dark">
+    <div class="motai">
         用户名:<el-input v-model="uname" placeholder="请输入用户名"></el-input>
         密码:<el-input v-model="password" placeholder="请输入密码"></el-input>
         性别:<el-radio v-model="radio" label="1">男</el-radio>
@@ -8,6 +9,7 @@
         手机号码:<el-input v-model="phone" placeholder="请输入手机号码"></el-input>
         邮箱:<el-input v-model="email" placeholder="请输入邮箱"></el-input>
         <el-button @click="insert">注册</el-button>
+    </div>
     </div>
 </template>
 <script>
@@ -63,3 +65,21 @@ export default {
     }
 }
 </script>
+<style scoped>
+*{
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+.dark{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(43, 44, 44, 0.226);
+}
+.motai{
+    position: absolute;
+    width: 40%;
+    height: 50%;
+    background-color: aliceblue;
+}
+</style>
