@@ -5,9 +5,9 @@
       <a href="">环球</a>
       <div id="dh">
         <ul>
-          <li><a href="">登录</a></li> 
+          <li><a href="http://127.0.0.1:8080/#/login">登录</a></li> 
            <li><a href="">回到顶部</a></li>
-            <li><a href="">上一级</a></li>
+            <li><a href="http://127.0.0.1:8080/#/region">上一级</a></li>
              <li><a href="">首页</a></li>
    
         </ul>

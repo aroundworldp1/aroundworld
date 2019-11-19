@@ -7,6 +7,8 @@ import lunbo from './components/lunbo'
 import footer from './components/footer'
 import mokuai from './components/mokuai'
 import pubu from './components/pubu'
+import userinfo from './components/userinfo'
+import detail from './components/detail'
 
 
 import ElementUI from 'element-ui'
@@ -21,6 +23,9 @@ Vue.component('lunbo',lunbo);
 Vue.component('my-footer',footer);
 Vue.component('mokuai',mokuai);
 Vue.component('pubu',pubu);
+Vue.component('userinfo',userinfo);
+Vue.component('detail',detail);
+
 Vue.use(ElementUI);
 
 Vue.config.productionTip = false

@@ -2,8 +2,8 @@
     <div class="sex" style="background-color:rgba(240, 248, 255, 0.336)">
     <div class="fg">
     <div class="ghi">
-      <div class="gtu">
-        <img src="./../../public/img/tour-1.jpg" alt="">
+      <div class="gtu" @click="next"> 
+        <img src="./../../public/img/tour-1.jpg" >
       <div class="gtn">
           <span class="price">$399</span> 
           <h3> Group Tour in Maldivs</h3>
@@ -15,7 +15,7 @@
       </div>
       </div>
 
-      <div class="gtu ">
+      <div class="gtu" @click="nextx">
         <img src="./../../public/img/tour-2.jpg" alt="">
         <div class="gtn">
             <span class="price">$399</span> 
@@ -111,6 +111,24 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+   data(){
+        return{
+            
+        }
+    },methods:{
+         next(){
+       console.log(1);
+          this.$router.replace('/spot');
+        },  nextx(){
+       console.log(1);
+          this.$router.replace('/article');
+        }
+    }
+}
+</script>
+
 <style scoped>
   *{
     margin:0 auto;padding: 0;
