@@ -1,6 +1,6 @@
 <template>
     <div class="sex" style="background-color:rgba(240, 248, 255, 0.336)">
-    <h2>Most Popular Destination</h2>
+    <h2>热门景点文章</h2>
     <div class="fg">
     <div class="ghi">
       <div class="gtu">

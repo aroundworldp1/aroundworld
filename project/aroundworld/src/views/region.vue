@@ -3,7 +3,9 @@
         <my-header></my-header>
         <lunbo></lunbo>
         
-        <mokuai></mokuai><my-footer></my-footer>
+        <mokuai></mokuai>
+        <pubu></pubu>
+        <my-footer></my-footer>
     </div>
 </template>
 <script>

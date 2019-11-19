@@ -6,6 +6,7 @@ import header from './components/header'
 import lunbo from './components/lunbo'
 import footer from './components/footer'
 import mokuai from './components/mokuai'
+import pubu from './components/pubu'
 
 
 import ElementUI from 'element-ui'
@@ -19,6 +20,7 @@ Vue.component('my-header',header);
 Vue.component('lunbo',lunbo);
 Vue.component('my-footer',footer);
 Vue.component('mokuai',mokuai);
+Vue.component('pubu',pubu);
 Vue.use(ElementUI);
 
 Vue.config.productionTip = false
