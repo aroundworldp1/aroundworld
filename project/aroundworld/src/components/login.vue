@@ -1,9 +1,10 @@
 <template>
-    <div>
+    <div class="dark">
+    <div class="motai">
         用户名:<el-input v-model="uname" placeholder="请输入用户名"></el-input>
         密码:<el-input placeholder="请输入密码" v-model="password" show-password></el-input>
         <el-button @click="login">登录</el-button>
-    </div>
+    </div></div>
 </template>
 <script>
 export default {
@@ -48,3 +49,16 @@ export default {
     }
 }
 </script>
+<style scoped>
+.dark{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(43, 44, 44, 0.226);
+}
+.motai{
+    position: absolute;
+    width: 40%;
+    height: 50%;
+    background-color: aliceblue;
+}
+</style>

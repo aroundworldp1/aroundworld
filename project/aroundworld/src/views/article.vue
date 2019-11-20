@@ -1,10 +1,7 @@
 <template>
     <div>   
-        <my-header></my-header>
-        <lunbo></lunbo>
-         <h2>地区热门景点</h2>
-        <mokuai></mokuai>
-        <h2>地区评论</h2>
+       <detail></detail>
+        <h2>文章评论</h2>
         <pubu></pubu>
         <my-footer></my-footer>
     </div>
