@@ -8,7 +8,7 @@
           <p>性别: {{uinfo.gender}} </p>
           <p>邮箱: {{uinfo.email}} </p>
           <p>电话: {{uinfo.phone}} </p>
-          <p>生日:{{uinfo.birthday}}</p>
+          <p>注册时间:{{uinfo.birthday}}</p>
         </div>
         </div>
         <div class="aa">
@@ -61,11 +61,6 @@ export default {
                     this.uinfo=uinfo;
                     console.log(uinfo);
                     console.log(uinfo.avatar);
-                    if(uinfo.gender===1){
-                      uinfo.gender="男"
-                    }else{
-                      uinfo.gender="女"
-                    }
                 }
             })
             .catch(err=>{
