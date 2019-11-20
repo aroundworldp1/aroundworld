@@ -2,7 +2,7 @@
     <div class="dark">
       <div class="call">
         <div class="pic">
-          <img style="width:90px;height:70px" :src="'http://127.0.0.1:8080/'+info.avatar" alt="">
+          <img style="width:130px;" :src="'http://127.0.0.1:3000/'+info.avatar" alt="">
           <div class="info">
           <p>用户名: {{uname}} </p>
           <p>性别: {{info.gender}} </p>
@@ -65,8 +65,9 @@ export default {
            this.axios.get(url,{params:obj}).then(res=>{
                 if(res.data.code===1){ 
                     var info=res.data.rows[0]; 
+                    this.info=info;
                     console.log(info);
-                    console.log(info.birthday);
+                    console.log(info.avatar);
                 }
             })
             .catch(err=>{
