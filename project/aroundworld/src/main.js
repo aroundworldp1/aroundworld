@@ -6,8 +6,8 @@ import header from './components/header'
 import lunbo from './components/lunbo'
 import footer from './components/footer'
 import mokuai from './components/mokuai'
+import mokuai2 from './components/mokuai2'
 import pubu from './components/pubu'
-import userinfo from './components/userinfo'
 import detail from './components/detail'
 
 
@@ -22,8 +22,8 @@ Vue.component('my-header',header);
 Vue.component('lunbo',lunbo);
 Vue.component('my-footer',footer);
 Vue.component('mokuai',mokuai);
+Vue.component('mokuai2',mokuai2);
 Vue.component('pubu',pubu);
-Vue.component('userinfo',userinfo);
 Vue.component('detail',detail);
 
 Vue.use(ElementUI);

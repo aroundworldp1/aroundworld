@@ -2,11 +2,11 @@
     <div class="sex" style="background-color:rgba(240, 248, 255, 0.336)">
     <div class="fg">
     <div class="ghi">
-      <div class="gtu" @click="next"> 
+      <div class="gtu" @click="nextx"> 
         <img src="./../../public/img/tour-1.jpg" >
       <div class="gtn">
           <span class="price">$399</span> 
-          <h3>点击进入热门景点</h3>
+          <h3> 点击进入文章</h3>
          <span class="text">Ameeru Ahmed Magu Male Maldives</span>  
           <p>
             <span class="start"></span>
@@ -118,9 +118,9 @@ export default {
             
         }
     },methods:{
-         next(){
+         nextx(){
        console.log(1);
-          this.$router.replace('/spot');
+          this.$router.replace('/article');
         }
     }
 }

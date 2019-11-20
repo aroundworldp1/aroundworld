@@ -4,8 +4,8 @@
         <div class="pic">
           <img style="width:90px;height:70px" src="img/02.jpeg" alt="">
           <div class="info">
-          <p>用户名:tian </p>
-          <p>注册时间:2007-12-21</p>
+          <p>用户名: {{uname}} </p>
+          <p>注册时间:{{userb}}</p>
         </div>
         </div>
         <div class="aa">
@@ -41,13 +41,26 @@
           </ul>
       </div> 
     </div>
-   <div class="quit">X</div>
+   <div class="quit" @click='back'>X</div>
   </div></div></div>
 </template>
 
 <script>
 export default {
-    
+  create(){
+    var info=this.$route.query.info;
+            var userb=info[0].birthday;
+  },
+     data(){
+        return{
+             uname:this.$route.query.uname,
+             
+        }
+    },methods:{
+      back(){
+         this.$router.go(-1);
+      }
+    }
 }
 </script>
 <style scoped>

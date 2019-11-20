@@ -3,7 +3,7 @@
         <my-header></my-header>
         <lunbo></lunbo>
          <h2>景点热门文章</h2>
-        <mokuai></mokuai>
+        <mokuai2></mokuai2>
         <h2>景点评论</h2>
         <pubu></pubu>
         <my-footer></my-footer>

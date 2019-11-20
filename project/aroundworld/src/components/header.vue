@@ -1,36 +1,56 @@
 <template>
     <!--导航条组件-->
+    
     <div id="container"> 
     <div id="dhl">
       <a href="">环球</a>
       <div id="dh">
         <ul>
-          <li><a href="http://127.0.0.1:8080/#/login">登录</a></li> 
+          <li v-show="!showlogin"><a href="http://127.0.0.1:8080/#/login" >登录</a></li> 
+          <li class="nav-bo" v-show="showlogin==1" @click="tanchaung"><a>welcome! {{uname}}</a></li>
            <li><a href="">回到顶部</a></li>
-            <li><a href="http://127.0.0.1:8080/#/region">上一级</a></li>
+            <li @click="back"><a>上一级</a></li>
              <li><a href="">首页</a></li>
    
         </ul>
       </div>
     </div>
 
-    <div id="container2">
-        <div id="dh2">
-            <a href="">环球</a>
-            <div id="dh3">
-              <ul>
-                <li><a href="">首页</a></li>
-                <li><a href="">上一级</a></li>
-                <li><a href="">回到顶部</a></li>
-                <li><a href="">登录</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-    
   </div>
 </template>
+<script>
+export default {
+    data(){
+        return{
+            showlogin:this.$route.query.showlogin,
+             uname:this.$route.query.uname,
+        }
+    },
+    methods:{ 
+        tanchaung(){
+          var u=this.uname;
+          var url='showuser';
+          var obj ={uname:u};
+          console.log(1);
+           this.axios.get(url,{params:obj}).then(res=>{
+                if(res.data.code===1){ 
+                    var info=res.data.rows;
+                    this.$router.push({path:'/userinfo',query:{uname:u,info}})
+                }else{
+                    this.$message("用户名有误");
+                    this.$message(res.data.code);
+                }
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+        },back(){
+         this.$router.go(-1);
+      }
+    }  
+    
+}
+</script> 
 
 <style scoped>
     *{margin:0;padding:0}

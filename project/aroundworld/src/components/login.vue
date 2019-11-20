@@ -38,6 +38,7 @@ export default {
             this.axios.get(url,{params:obj}).then(res=>{
                 if(res.data.code===1){
                     this.$message("登录成功");
+                    this.$router.push({path:'/region',query:{showlogin:1,uname:u}})
                 }else{
                     this.$message("用户名和密码有误");
                 }

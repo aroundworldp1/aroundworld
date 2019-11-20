@@ -2,9 +2,11 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import region from '../views/region.vue'
 import spot from '../views/spot.vue'
+import userinfo from '../views/userinfo.vue'
 import article from '../views/article.vue'
 import login from '../components/login.vue'
 import insert from '../components/insert.vue'
+
 
 
 Vue.use(VueRouter)
@@ -16,6 +18,7 @@ const routes = [
   {path:'/region',component:region},
   {path:'/article',component:article},
   {path:'/spot',component:spot},
+  {path:'/userinfo',component:userinfo},
 ]
 
 const router = new VueRouter({
