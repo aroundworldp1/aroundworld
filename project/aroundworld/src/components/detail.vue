@@ -2,7 +2,7 @@
      
          <div id="container2">
         <div id="dh2">
-            <a href="http://127.0.0.1:8080/#/region">环球</a>
+            <a href="">环球</a>
             <div id="dh3">
               <ul>   
                 <li><a href="http://127.0.0.1:8080/#/spot">上一级</a></li>

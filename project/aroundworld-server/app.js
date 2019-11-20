@@ -80,3 +80,63 @@ server.post("/insert",(req,res)=>{
       }
    })
 })
+
+server.get("/showuser",(req,res)=>{
+    var uname=req.query.uname;
+    var sql="SELECT birthday,email,avatar,phone,gender FROM user WHERE uname=?";
+    pool.query(sql,[uname],(err,result)=>{
+       if(err)throw err;
+       if(result.length==0){
+          res.send({code:-1,msg:"用户名有误"});
+       }else{
+          var data=result;
+          console.log(result);
+        res.send({code:1,msg:'进入个人页面成功',rows:data});
+          
+       }
+    })
+ })
+ server.get("/showart",(req,res)=>{
+    var writer=req.query.writer;
+    var sql="SELECT aid,title,puttime FROM article WHERE writer=?";
+    pool.query(sql,[writer],(err,result)=>{
+       if(err)throw err;
+       if(result.length==0){
+          res.send({code:-1,msg:"数据加载失败"});
+       }else{
+          var data=result;
+          console.log(result);
+        res.send({code:1,msg:'数据加载成功',rows:data});
+          
+       }
+    })
+ })
+ server.get("/showcom",(req,res)=>{
+    var writer=req.query.writer;
+    var sql="SELECT cid,content,puttime FROM comment WHERE writer=?";
+    pool.query(sql,[writer],(err,result)=>{
+       if(err)throw err;
+       if(result.length==0){
+          res.send({code:-1,msg:"数据加载失败"});
+       }else{
+          var data=result;
+          console.log(result);
+        res.send({code:1,msg:'数据加载成功',rows:data});
+          
+       }
+    })
+ })
+ server.get("/showregion",(req,res)=>{
+    var sql="SELECT * FROM region";
+    pool.query(sql,(err,result)=>{
+       if(err)throw err;
+       if(result.length==0){
+          res.send({code:-1,msg:"数据加载失败"});
+       }else{
+          var data=result;
+          console.log(result);
+        res.send({code:1,msg:'数据加载成功',rows:data});
+          
+       }
+    })
+ })

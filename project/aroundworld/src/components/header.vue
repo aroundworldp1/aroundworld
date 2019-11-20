@@ -1,36 +1,43 @@
 <template>
     <!--导航条组件-->
+    
     <div id="container"> 
     <div id="dhl">
       <a href="">环球</a>
       <div id="dh">
         <ul>
-          <li><a href="http://127.0.0.1:8080/#/login">登录</a></li> 
+          <li v-show="!showlogin"><a href="http://127.0.0.1:8080/#/login" >登录</a></li> 
+          <li class="nav-bo" v-show="showlogin==1" @click="tanchaung"><a>welcome! {{uname}}</a></li>
            <li><a href="">回到顶部</a></li>
-            <li><a href="http://127.0.0.1:8080/#/region">上一级</a></li>
+            <li @click="back"><a>上一级</a></li>
              <li><a href="">首页</a></li>
    
         </ul>
       </div>
     </div>
 
-    <div id="container2">
-        <div id="dh2">
-            <a href="">环球</a>
-            <div id="dh3">
-              <ul>
-                <li><a href="">首页</a></li>
-                <li><a href="">上一级</a></li>
-                <li><a href="">回到顶部</a></li>
-                <li><a href="">登录</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-    
   </div>
 </template>
+<script>
+export default {
+    data(){
+        return{
+            showlogin:this.$route.query.showlogin,
+             uname:this.$route.query.uname,
+        }
+    },
+    methods:{ 
+        tanchaung(){
+          var u=this.uname;
+          this.$router.push({path:'/userinfo',query:{uname:u}});
+          
+        },back(){
+         this.$router.go(-1);
+      }
+    }  
+    
+}
+</script> 
 
 <style scoped>
     *{margin:0;padding:0}
