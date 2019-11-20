@@ -29,26 +29,8 @@ export default {
     methods:{ 
         tanchaung(){
           var u=this.uname;
-          var url='showuser';
-          var obj ={uname:u};
-          console.log(1);
-           this.axios.get(url,{params:obj}).then(res=>{
-                if(res.data.code===1){ 
-                    var info=res.data.rows;
-                    var b=info[0].birthday;
-                    var p=info[0].phone;
-                    var e=info[0].email;
-                    var a=info[0].avatar;
-                    var g=info[0].gender;
-                    this.$router.push({path:'/userinfo',query:{uname:u,b,p,e,a,g}})
-                }else{
-                    this.$message("用户名有误");
-                    this.$message(res.data.code);
-                }
-            })
-            .catch(err=>{
-                console.log(err)
-            })
+          this.$router.push({path:'/userinfo',query:{uname:u}});
+          
         },back(){
          this.$router.go(-1);
       }

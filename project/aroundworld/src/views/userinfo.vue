@@ -2,13 +2,13 @@
     <div class="dark">
       <div class="call">
         <div class="pic">
-          <img style="width:90px;height:70px" :src="'http://127.0.0.1:8080/'+avatar" alt="">
+          <img style="width:90px;height:70px" :src="'http://127.0.0.1:8080/'+info.avatar" alt="">
           <div class="info">
           <p>用户名: {{uname}} </p>
-          <p>性别: {{gender}} </p>
-          <p>邮箱: {{email}} </p>
-          <p>电话: {{phone}} </p>
-          <p>注册时间:{{birthday}}</p>
+          <p>性别: {{info.gender}} </p>
+          <p>邮箱: {{info.email}} </p>
+          <p>电话: {{info.phone}} </p>
+          <p>注册时间:{{info.birthday}}</p>
         </div>
         </div>
         <div class="aa">
@@ -50,17 +50,29 @@
 
 <script>
 export default {
-     data(){
+     created(){
+       this.loaduser();
+     },data(){
         return{
-             uname:this.$route.query.uname,
-             birthday:this.$route.query.b,
-             phone:this.$route.query.p,
-             email:this.$route.query.e,
-             avatar:this.$route.query.a,
-             gender:this.$route.query.g,
-             
+          info:[],
+          uname:this.$route.query.uname,
         }
     },methods:{
+      loaduser(){
+        var url='showuser';
+        var  u=this.uname;
+          var obj ={uname:u};
+           this.axios.get(url,{params:obj}).then(res=>{
+                if(res.data.code===1){ 
+                    var info=res.data.rows[0]; 
+                    console.log(info);
+                    console.log(info.birthday);
+                }
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+      },
       back(){
          this.$router.go(-1);
       }
