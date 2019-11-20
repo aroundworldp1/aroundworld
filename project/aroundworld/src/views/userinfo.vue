@@ -2,10 +2,13 @@
     <div class="dark">
       <div class="call">
         <div class="pic">
-          <img style="width:90px;height:70px" src="img/02.jpeg" alt="">
+          <img style="width:90px;height:70px" :src="'http://127.0.0.1:8080/'+avatar" alt="">
           <div class="info">
           <p>用户名: {{uname}} </p>
-          <p>注册时间:{{userb}}</p>
+          <p>性别: {{gender}} </p>
+          <p>邮箱: {{email}} </p>
+          <p>电话: {{phone}} </p>
+          <p>注册时间:{{birthday}}</p>
         </div>
         </div>
         <div class="aa">
@@ -47,13 +50,14 @@
 
 <script>
 export default {
-  create(){
-    var info=this.$route.query.info;
-            var userb=info[0].birthday;
-  },
      data(){
         return{
              uname:this.$route.query.uname,
+             birthday:this.$route.query.b,
+             phone:this.$route.query.p,
+             email:this.$route.query.e,
+             avatar:this.$route.query.a,
+             gender:this.$route.query.g,
              
         }
     },methods:{

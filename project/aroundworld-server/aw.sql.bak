@@ -4,7 +4,7 @@ drop database if exists aw;
 create database aw CHARSET=UTF8;
 use aw;
 create table user(
-    id int(6) not null primary key AUTO_INCREMENT,
+    uid int(6) not null primary key AUTO_INCREMENT,
     uname varchar(16) not null,
     gender bool,
     upwd  varchar(16) not null,
