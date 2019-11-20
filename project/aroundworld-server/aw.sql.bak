@@ -45,7 +45,7 @@ create table comment(
     article varchar(16)
 );
 /*插入数据用户表*/
-INSERT INTO user VALUES('1','kangkang','1','45566','1996-12-31','24555@qq.com','1554469','s',1);
+INSERT INTO user VALUES('1','kangkang','1','45566','1996-12-31','24555@qq.com','1554469','gd.jpg',1);
 INSERT INTO user VALUES('2','sun','0','45866','1998-12-31','24355@qq.com','1556469','s',1);
 INSERT INTO user VALUES('3','faker','0','25566','1999-12-31','22555@qq.com','1554369','s',0);
 INSERT INTO user VALUES('4','libai','1','35566','1998-12-31','28555@qq.com','1854469','s',0);

@@ -72,8 +72,8 @@ INSERT INTO spot VALUES('9','Bangkok','thai','sddffadd','dsd');
 INSERT INTO spot VALUES('10','Statue','America','sddffadd','dsd');
 INSERT INTO spot VALUES('11','Notre Dame de Paris','France','sddffadd','dsd');
 /*插入文章表数据*/
-INSERT INTO article VALUES('1','chengdon','shenmu','2018-12-3','ddada','china','ssss');
-INSERT INTO article VALUES('2','libai','shenmu','2019-10-3','ddada','thai','ssss');
+INSERT INTO article VALUES('1','kangkang','shenmu','2018-12-3','ddada','china','ssss');
+INSERT INTO article VALUES('2','kangkang','shenmu','2019-10-3','ddada','thai','ssss');
 INSERT INTO article VALUES('3','dufu','shenmu','2019-12-3','ddada','England','ssss');
 INSERT INTO article VALUES('4','sushi','shenmu','2018-12-3','ddada','Japan','ssss');
 INSERT INTO article VALUES('5','baijuyi','shenmu','2017-12-3','ddada','Korea','ssss');
@@ -81,8 +81,8 @@ INSERT INTO article VALUES('6','limu','shenmu','2016-12-3','ddada','America','ss
 INSERT INTO article VALUES('7','tian','shenmu','2013-12-3','ddada','France','ssss');
 INSERT INTO article VALUES('8','shen','shenmu','2012-12-3','ddada','America','ssss');
 /*插入评论*/
-INSERT INTO comment VALUES('1','tuantuan','2016-7-11','ssddfdd','thai','shenmu');
-INSERT INTO comment VALUES('2','duanduan','2018-8-11','ssddfdd','thai','shenmu');
+INSERT INTO comment VALUES('1','kangkang','2016-7-11','ssddfdd','thai','shenmu');
+INSERT INTO comment VALUES('2','kangkang','2018-8-11','ssddfdd','thai','shenmu');
 INSERT INTO comment VALUES('3','changchana','2019-9-11','ssddfdd','thai','shenmu');
 INSERT INTO comment VALUES('4','aiai','2017-11-11','ssddfdd','thai','shenmu');
 INSERT INTO comment VALUES('5','shasha','2015-12-11','ssddfdd','thai','shenmu');

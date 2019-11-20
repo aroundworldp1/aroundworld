@@ -2,45 +2,34 @@
     <div class="dark">
       <div class="call">
         <div class="pic">
-          <img style="width:130px;" :src="'http://127.0.0.1:3000/'+info.avatar" alt="">
+          <img style="width:130px;" :src="'http://127.0.0.1:3000/'+uinfo.avatar" alt="">
           <div class="info">
           <p>用户名: {{uname}} </p>
-          <p>性别: {{info.gender}} </p>
-          <p>邮箱: {{info.email}} </p>
-          <p>电话: {{info.phone}} </p>
-          <p>注册时间:{{info.birthday}}</p>
+          <p>性别: {{uinfo.gender}} </p>
+          <p>邮箱: {{uinfo.email}} </p>
+          <p>电话: {{uinfo.phone}} </p>
+          <p>注册时间:{{uinfo.birthday}}</p>
         </div>
         </div>
         <div class="aa">
-            <h2 >&nbsp;&nbsp;最近评论</h2>
+            <h2 >&nbsp;&nbsp;{{uname}}&nbsp;&nbsp;最近评论</h2>
             <div class="bb"> 
-          <ul style="width: 55%">
-           <li>xxxxxxxxxxx</li>
-           <li>xxxxxxxxxxxx</li>
-           <li>xxxxxxxxxxx</li>
-           <li style="margin: 15px;"><a href="">上一页</a></li>
-         </ul>
-          <ul>
-            <li>1199-2-2&nbsp;&nbsp;<a href="">修改</a>&nbsp;<a href="">删除</a></li>
-            <li>1199-2-2&nbsp;&nbsp;<a href="">修改</a>&nbsp;<a href="">删除</a></li>
-            <li>1199-2-2&nbsp;&nbsp;<a href="">修改</a>&nbsp;<a href="">删除</a></li>
-            <li style="margin-left: 50px;margin-top: 15px;"><a href="">下一页</a></li>
+          <ul v-for="(item,i) of cinfo" :key="i">
+            <li>{{item.cid}}</li>
+            <li>{{item.content}}</li>
+            <li>{{item.puttime}}</li>
+            <li>&nbsp;&nbsp;<a href="">修改</a>&nbsp;<a href="">删除</a></li>
           </ul>
+          
       </div> 
       <div class="cc"></div>
-      <h2 style="margin-top: 50px;">&nbsp;&nbsp;最近文章</h2>
+      <h2 style="margin-top: 50px;">&nbsp;&nbsp;{{uname}}&nbsp;&nbsp;最近文章</h2>
       <div class="bb"> 
-          <ul style="width: 55%;margin-top: 15px;">
-           <li>xxxxxxxxxxx</li>
-           <li>xxxxxxxxxxxx</li>
-           <li>xxxxxxxxxxx</li>
-           <li style="margin: 15px;"><a href="">上一页</a></li>
-         </ul>
-          <ul>
-            <li>1199-2-2 &nbsp;&nbsp;<a href="">修改</a>&nbsp;<a href="">删除</a></li>
-            <li>1199-2-2&nbsp;&nbsp;<a href="">修改</a>&nbsp;<a href="">删除</a></li>
-            <li>1199-2-2&nbsp;&nbsp;<a href="">修改</a>&nbsp;<a href="">删除</a></li>
-            <li style="margin-left: 50px;margin-top: 15px;"><a href="">下一页</a></li>
+          <ul v-for="(item,i) of ainfo" :key="i">
+            <li>{{item.aid}}</li>
+            <li>{{item.title}}</li>
+            <li>{{item.puttime}}</li>
+            <li>&nbsp;&nbsp;<a href="">修改</a>&nbsp;<a href="">删除</a></li>
           </ul>
       </div> 
     </div>
@@ -52,9 +41,13 @@
 export default {
      created(){
        this.loaduser();
+       this.loadart();
+       this.loadcom();
      },data(){
         return{
-          info:[],
+          uinfo:[],
+          ainfo:[],
+          cinfo:[],
           uname:this.$route.query.uname,
         }
     },methods:{
@@ -64,10 +57,44 @@ export default {
           var obj ={uname:u};
            this.axios.get(url,{params:obj}).then(res=>{
                 if(res.data.code===1){ 
-                    var info=res.data.rows[0]; 
-                    this.info=info;
-                    console.log(info);
-                    console.log(info.avatar);
+                    var uinfo=res.data.rows[0]; 
+                    this.uinfo=uinfo;
+                    console.log(uinfo);
+                    console.log(uinfo.avatar);
+                }
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+      },
+      loadart(){
+        var url='showart';
+        var  u=this.uname;
+          var obj ={writer:u};
+           this.axios.get(url,{params:obj}).then(res=>{
+                if(res.data.code===1){ 
+                    var ainfo=res.data.rows; 
+                    this.ainfo=ainfo;
+                    this.ainfo=this.ainfo.concat(res.data.rows);
+                    console.log(ainfo);
+                    console.log(ainfo[0].title);
+                }
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+      },
+      loadcom(){
+        var url='showcom';
+        var  u=this.uname;
+          var obj ={writer:u};
+           this.axios.get(url,{params:obj}).then(res=>{
+                if(res.data.code===1){ 
+                    var cinfo=res.data.rows; 
+                    this.cinfo=cinfo;
+                    this.cinfo=this.cinfo.concat(res.data.rows);
+                    console.log(cinfo);
+                    console.log(cinfo[0].content);
                 }
             })
             .catch(err=>{
@@ -93,7 +120,7 @@ export default {
     }
     .call{
       position: absolute;
-      top:30%;
+      top:20%;
       left: 24%;
       width: 1000px;
       height: 600px;
@@ -122,13 +149,14 @@ export default {
     }
     .bb{
       width: 100%;
-      display: flex;
+      
       font-size: 1.2rem;
       color: rgba(133, 87, 27, 0.575);
     }
     .aa ul{
       list-style: none;
       margin-top: 10px;
+      display:flex;
     }
     .aa ul a{
      text-decoration: none;
