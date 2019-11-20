@@ -1,4 +1,4 @@
-/*环游数据库 aw数据库创建*/
+﻿/*环游数据库 aw数据库创建*/
 SET NAMES UTF8;
 drop database if exists aw;
 create database aw CHARSET=UTF8;
@@ -52,13 +52,10 @@ INSERT INTO user VALUES('4','libai','1','35566','1998-12-31','28555@qq.com','185
 INSERT INTO user VALUES('5','goukon','0','95566','1993-12-31','94555@qq.com','1154469','s',0);
 INSERT INTO user VALUES('6','shanshan','1','85566','1997-12-31','64555@qq.com','1354469','s',1);
 /*插入数据地区表*/
-INSERT INTO region VALUES('1','China','sswjdjdsdbkbhhbs','sdsd');
-INSERT INTO region VALUES('2','England','sswjdjdsdbkbhhbs','sdsd');
-INSERT INTO region VALUES('3','Japan','sswjdjdsdbkbhhbs','sdsd');
-INSERT INTO region VALUES('4','Korea','sswjdjdsdbkbhhbs','sdsd');
-INSERT INTO region VALUES('5','thai','sswjdjdsdbkbhhbs','sdsd');
-INSERT INTO region VALUES('6','America','sswjdjdsdbkbhhbs','sdsd');
-INSERT INTO region VALUES('7','France','sswjdjdsdbkbhhbs','sdsd');
+INSERT INTO region VALUES('1','埃及--沙姆沙伊赫','位于西奈半岛南端亚喀巴湾 (Gulf of Aqaba) 地区，距离苏伊士约 300 公里，距离穆罕默德国家公园仅 19 公里。濒临红海亚喀巴湾，常年阳光充足。全年气候干爽舒适，冬季气温在 20 至 25°C 之间，夏季气温则会上升到 30 至 35°C。','bg_4.jpg');
+INSERT INTO region VALUES('2','埃及--伊斯梅利亚','该市拥有苏伊士运河沿岸三大港口（从北往南依次为塞得港、伊斯梅利亚港、苏伊士港，被称为“运河三城”、“运河三姐妹”。）之一，是依靠运河的水浇灌出来的花园城市，到处分布着椰枣树、草地和花园，有很多旅馆和酒店，市容干净整洁，环境安静优美，被誉为“埃及最美的城市”、“运河的新娘”。','bg_2.jpg');
+INSERT INTO region VALUES('3','埃及--阿斯旺','埃及文化古城，阿斯旺省首府，是埃及南方的一个重要城市。位于首都开罗以南900公里的尼罗河东岸，是埃及的南大门，是黑非洲的门户和唯一一条由海上进入非洲腹地的通道。','bg_3.jpg');
+
 /*插入数据景点表*/
 INSERT INTO spot VALUES('1','taishan','china','sddffadd','dsd');
 INSERT INTO spot VALUES('2','changcheng','china','sddffadd','dsd');

@@ -60,7 +60,7 @@ export default {
                     var uinfo=res.data.rows[0]; 
                     this.uinfo=uinfo;
                     console.log(uinfo);
-                    console.log(uinfo.avatar);
+                    console.log(uinfo.birthday);
                 }
             })
             .catch(err=>{
