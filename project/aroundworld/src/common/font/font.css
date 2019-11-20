@@ -1,0 +1,9 @@
+@font-face {
+  font-family:'jinmeiti';
+  src:url('./jinmeiti.ttf');
+  font-weight: normal;  
+  font-style: normal;  
+}
+body{ 
+  font-family: 'jinmeiti';
+}

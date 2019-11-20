@@ -14,6 +14,7 @@ import detail from './components/detail'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
+import './common/font/font.css'
 axios.defaults.baseURL="http://127.0.0.1:3000/"
 axios.defaults.withCredentials=true
 Vue.prototype.axios=axios
