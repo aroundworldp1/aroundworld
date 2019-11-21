@@ -154,3 +154,32 @@ server.get("/showuser",(req,res)=>{
      }
   })
 })
+server.get("/showarticle",(req,res)=>{
+  var sql="SELECT * FROM article";
+  pool.query(sql,(err,result)=>{
+     if(err)throw err;
+     if(result.length==0){
+        res.send({code:-1,msg:"数据加载失败"});
+     }else{
+        var data=result;
+        console.log(result);
+      res.send({code:1,msg:'数据加载成功',rows:data});
+        
+     }
+  })
+})
+server.get("/showdetail",(req,res)=>{
+  var aid=req.query.aid;
+  var sql="SELECT * FROM article where aid=?";
+  pool.query(sql,[aid],(err,result)=>{
+     if(err)throw err;
+     if(result.length==0){
+        res.send({code:-1,msg:"数据加载失败"});
+     }else{
+        var data=result;
+        console.log(result);
+      res.send({code:1,msg:'数据加载成功',rows:data});
+        
+     }
+  })
+})

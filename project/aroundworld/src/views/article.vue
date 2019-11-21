@@ -18,7 +18,7 @@ export default {
      font-size: 30px;
 
      text-align: center;
-       
-     padding: 48px;
+    padding-top:170px;
+     
    }
 </style>

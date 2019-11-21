@@ -24,11 +24,13 @@ export default {
      },
     data(){
         return{
-           lunbotu:1,
            list:[],
         }
     },
     methods:{ 
+      next(){
+        this.$router.replace('/spot');
+      },
         loadspot(){
             var url='showspot';
            this.axios.get(url).then(res=>{

@@ -1,128 +1,56 @@
 <template>
     <div class="sex" style="background-color:rgba(240, 248, 255, 0.336)">
-    <div class="fg">
+    <div class="fg" >
     <div class="ghi">
-      <div class="gtu" @click="nextx"> 
-        <img src="./../../public/img/tour-1.jpg" >
+      <div class="gtu"  v-for="(item,i) of list" :key="i"> 
+        <img :src="'http://127.0.0.1:3000/'+item.apic" @click="next(i)">
       <div class="gtn">
-          <span class="price">$399</span> 
-          <h3> 点击进入文章</h3>
-         <span class="text">Ameeru Ahmed Magu Male Maldives</span>  
+          <h3>{{item.title}}</h3>
+         <span class="text">{{item.writer}}</span>  
           <p>
             <span class="start"></span>
-            <span class="txt">500 reviews</span>
-          </p>
-      </div>
-      </div>
-
-      <div class="gtu">
-        <img src="./../../public/img/tour-2.jpg" alt="">
-        <div class="gtn">
-            <span class="price">$399</span> 
-            <h3> Group Tour in Maldivs</h3>
-           <span class="text">Ameeru Ahmed Magu Male Maldives</span>  
-            <p>
-              <span class="start"></span>
-              <span class="txt">500 reviews</span>
-            </p>
-        </div>
-      </div>
-
-      <div class="gtu">
-        <img src="./../../public/img/tour-3.jpg" alt="">
-        <div class="gtn">
-            <span class="price">$399</span> 
-          <h3> Group Tour in Maldivs</h3>
-         <span class="text">Ameeru Ahmed Magu Male Maldives</span>  
-          <p>
-            <span class="start"></span>
-            <span class="txt">500 reviews</span>
-          </p>
-      </div>
-    </div>
-
-      <div class="gtu">
-        <img src="./../../public/img/tour-4.jpg" alt="">
-        <div class="gtn">
-            <span class="price">$399</span> 
-            <h3> Group Tour in Maldivs</h3>
-           <span class="text">Ameeru Ahmed Magu Male Maldives</span>  
-            <p>
-              <span class="start"></span>
-              <span class="txt">500 reviews</span>
-            </p>
-      </div>
-    </div>
-    </div>
-    
-    <div class="ghi">
-      <div class="gtu">
-        <img src="./../../public/img/tour-5.jpg" alt="">
-        <div class="gtn"> 
-            <span class="price">$399</span> 
-            <h3> Group Tour in Maldivs</h3>
-           <span class="text">Ameeru Ahmed Magu Male Maldives</span>  
-            <p>
-              <span class="start"></span>
-              <span class="txt">500 reviews</span>
-            </p>
-        </div>
-      </div>
-
-      <div class="gtu">
-        <img src="./../../public/img/tour-6.jpg" alt="">
-        <div class="gtn">
-            <span class="price">$399</span> 
-          <h3> Group Tour in Maldivs</h3>
-         <span class="text">Ameeru Ahmed Magu Male Maldives</span>  
-          <p>
-            <span class="start"></span>
-            <span class="txt">500 reviews</span>
-          </p>
-      </div>
-    </div>
-
-      <div class="gtu">
-        <img src="./../../public/img/tour-7.jpg" alt="">
-        <div class="gtn">
-            <span class="price">$399</span> 
-          <h3> Group Tour in Maldivs</h3>
-         <span class="text">Ameeru Ahmed Magu Male Maldives</span>  
-          <p>
-            <span class="start"></span>
-            <span class="txt">500 reviews</span>
+            <span class="txt">{{item.puttime}}</span>
           </p>
         </div>
-      </div>
-
-      <div class="gtu">
-        <img src="./../../public/img/tour-8.jpg" alt="">
-        <div class="gtn">
-            <span class="price">$399</span> 
-          <h3> Group Tour in Maldivs</h3>
-         <span class="text">Ameeru Ahmed Magu Male Maldives</span>  
-          <p>
-            <span class="start"></span>
-            <span class="txt">500 reviews</span>
-          </p>
         </div>
       </div>
-    </div>
     </div>
   </div>
 </template>
 <script>
 export default {
-   data(){
+     created(){
+       this.loadarticle();
+     },
+    data(){
         return{
-            
+           list:[],
         }
-    },methods:{
-         nextx(){
-       console.log(1);
-          this.$router.replace('/article');
-        }
-    }
+    },
+    methods:{ 
+      next(i){
+        console.log(i);
+        var aid=this.list[i].aid;
+       this.$router.push({path:'/article',query:{aid:aid}});
+      },
+        loadarticle(){
+            var url='showarticle';
+           this.axios.get(url).then(res=>{
+                if(res.data.code===1){ 
+                    var list=res.data.rows; 
+                    this.list=list;
+                    console.log(list[0].id);
+                }
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+        },
+       
+    }, watch: {
+        
+  }
+    
 }
 </script>
 
@@ -155,6 +83,8 @@ export default {
      width: 415.75px;
      height: 400px;
       animation: proRotate 1.5s;
+      display:flex;
+
    }
   .gtu::after{
     opacity: 0.5;
@@ -176,7 +106,7 @@ export default {
    }
    .gtn{
      text-align: left;
-     
+     margin:10px;
    }
    .gtu:hover img{
      animation: prokkk 1.5s;
@@ -222,9 +152,9 @@ export default {
        margin: 0px 0px 16px;
      }
    .ghi{
-     width: 1663px;
-     height: 400px;
+    width:87.4%;
      display: flex;
+     flex-wrap:wrap;
    text-align: center;
    align-items: center;
    align-content: center;
