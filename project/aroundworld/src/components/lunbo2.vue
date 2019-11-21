@@ -1,16 +1,11 @@
 <template>
     <!--轮播图组件-->
     <div class="dark"> <!--大图-->
-       <div class="call" v-for="(item,i) of list" :key="i" v-if="lunbotu==i"><img :src="'http://127.0.0.1:3000/'+item.spic" alt=""></div>
-        <div class="regioninfo"  v-for="(item,i) of list" :key="i" v-if="lunbotu==i">
-            <p class="p1">{{item.sname}}</p>
-            <p class="p2">{{item.info}}</p>
+       <div class="call"><img :src="'http://127.0.0.1:3000/'+list.spic" alt=""></div>
+        <div class="regioninfo">
+            <p class="p1">{{list.sname}}</p>
+            <p class="p2">{{list.info}}</p>
         </div>
-        <div class="switch" v-for="(item,i) of list" :key="i">
-            <ul>
-                <li v-for="(item,i) of list" :key="i"><div class="ses" @mouseenter="enter(i)"><div class="sess"></div></div></li>
-            </ul>
-    </div>
     </div>
 </template>
 <script>
@@ -20,18 +15,20 @@ export default {
      },
     data(){
         return{
-           lunbotu:1,
+           sname:this.$route.query.sname,
            list:[],
         }
     },
     methods:{ 
         loadspot(){
-            var url='showspot';
-           this.axios.get(url).then(res=>{
+            var  sname=this.sname;
+          var obj ={sname:sname};
+            var url='showspotdetail';
+           this.axios.get(url,{params:obj}).then(res=>{
                 if(res.data.code===1){ 
                     var list=res.data.rows; 
-                    this.list=list;
-                    console.log(list[0].id);
+                    this.list=list[0];
+                    console.log(list);
                 }
             })
             .catch(err=>{

@@ -154,9 +154,25 @@ server.get("/showuser",(req,res)=>{
      }
   })
 })
-server.get("/showarticle",(req,res)=>{
-  var sql="SELECT * FROM article";
-  pool.query(sql,(err,result)=>{
+server.get("/showspotdetail",(req,res)=>{
+  var sname =req.query.sname;
+  var sql="SELECT * FROM spot where sname=?";
+  pool.query(sql,[sname],(err,result)=>{
+     if(err)throw err;
+     if(result.length==0){
+        res.send({code:-1,msg:"数据加载失败"});
+     }else{
+        var data=result;
+        console.log(result);
+      res.send({code:1,msg:'数据加载成功',rows:data});
+        
+     }
+  })
+})
+server.get("/showspotart",(req,res)=>{
+  var spot=req.query.spot;
+  var sql="SELECT * FROM article where spot=?";
+  pool.query(sql,[spot],(err,result)=>{
      if(err)throw err;
      if(result.length==0){
         res.send({code:-1,msg:"数据加载失败"});
@@ -183,9 +199,25 @@ server.get("/showdetail",(req,res)=>{
      }
   })
 })
-server.get("/showcomment",(req,res)=>{
-  var sql="SELECT * FROM comment";
-  pool.query(sql,(err,result)=>{
+server.get("/showspotcom",(req,res)=>{
+  var spot=req.query.spot;
+  var sql="SELECT * FROM comment where spot=?";
+  pool.query(sql,[spot],(err,result)=>{
+     if(err)throw err;
+     if(result.length==0){
+        res.send({code:-1,msg:"数据加载失败"});
+     }else{
+        var data=result;
+        console.log(result);
+      res.send({code:1,msg:'数据加载成功',rows:data});
+        
+     }
+  })
+})
+server.get("/showartcom",(req,res)=>{
+  var articleid=req.query.articleid;
+  var sql="SELECT * FROM comment where articleid=?";
+  pool.query(sql,[articleid],(err,result)=>{
      if(err)throw err;
      if(result.length==0){
         res.send({code:-1,msg:"数据加载失败"});

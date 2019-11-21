@@ -2,7 +2,7 @@
     <div class="container">
     <div class="box"  v-for="(item,i) of list" :key="i">
       <div class="kuang">
-      <img  src="./../../public/img/product_5d786606d9b7b.jpg" alt="">
+      <img :src="'http://127.0.0.1:3000/'+item.avatar" alt="">
       <span class="xing">{{item.writer}}</span><br>
       <span class="shijian">{{item.puttime}}</span>
       </div>
@@ -20,13 +20,16 @@ export default {
      },
     data(){
         return{
+          aid:this.$route.query.aid,
            list:[],
         }
     },
     methods:{ 
         loadcomment(){
-            var url='showcomment';
-           this.axios.get(url).then(res=>{
+           var  articleid=this.aid;
+          var obj ={articleid:articleid};
+            var url='showartcom';
+           this.axios.get(url,{params:obj}).then(res=>{
                 if(res.data.code===1){ 
                     var list=res.data.rows; 
                     this.list=list;
@@ -78,8 +81,8 @@ span {
     }
     .container .box{
       width:100%;
-      margin:0 0 20px;
-      padding:10px;
+      margin:0 0;
+      padding:10px 10px 60px;
       background:rgba(205, 236, 248, 0.39);
       overflow: hidden;
       break-inside: avoid;

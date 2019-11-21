@@ -2,11 +2,11 @@
     <div class="sex" style="background-color:rgba(240, 248, 255, 0.336)">
     <div class="fg" >
     <div class="ghi">
-      <div class="gtu" @click="next" v-for="(item,i) of list" :key="i"> 
+      <div class="gtu" @click="next(i)" v-for="(item,i) of list" :key="i"> 
         <img :src="'http://127.0.0.1:3000/'+item.spic">
       <div class="gtn">
           <h3>{{item.sname}}</h3>
-         <span class="text">{{item.info}}</span>  
+         <span class="text">{{item.title}}</span>  
           <p>
             <span class="start"></span>
             <span class="txt">{{item.aera}}</span>
@@ -28,8 +28,10 @@ export default {
         }
     },
     methods:{ 
-      next(){
-        this.$router.replace('/spot');
+      next(i){
+        console.log(i);
+        var sname=this.list[i].sname;
+       this.$router.push({path:'/spot',query:{sname:sname}});
       },
         loadspot(){
             var url='showspot';

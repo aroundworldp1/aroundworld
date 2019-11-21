@@ -24,22 +24,24 @@ export default {
      },
     data(){
         return{
+           sname:this.$route.query.sname,
            list:[],
         }
     },
     methods:{ 
       next(i){
-        console.log(i);
         var aid=this.list[i].aid;
        this.$router.push({path:'/article',query:{aid:aid}});
       },
         loadarticle(){
-            var url='showarticle';
-           this.axios.get(url).then(res=>{
+          var  spot=this.sname;
+          var obj ={spot:spot};
+            var url='showspotart';
+           this.axios.get(url,{params:obj}).then(res=>{
                 if(res.data.code===1){ 
                     var list=res.data.rows; 
                     this.list=list;
-                    console.log(list[0].id);
+                    console.log(list[0]);
                 }
             })
             .catch(err=>{
