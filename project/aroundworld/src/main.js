@@ -9,6 +9,7 @@ import footer from './components/footer'
 import mokuai from './components/mokuai'
 import mokuai2 from './components/mokuai2'
 import pubu from './components/pubu'
+import pubu2 from './components/pubu2'
 import detail from './components/detail'
 
 
@@ -27,6 +28,7 @@ Vue.component('my-footer',footer);
 Vue.component('mokuai',mokuai);
 Vue.component('mokuai2',mokuai2);
 Vue.component('pubu',pubu);
+Vue.component('pubu2',pubu2);
 Vue.component('detail',detail);
 
 Vue.use(ElementUI);
