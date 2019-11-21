@@ -13,9 +13,7 @@ export default {
 </script>
 
 <style scoped>
-div{
-    font-family: 'jinmeiti';
-}
+
  h2{
      font-size: 30px;
 
