@@ -1,45 +1,85 @@
 <template><div>
     <div class="container">
     <div class="box">
+      <div class="kuang">
       <img src="./../../public/img/product_5d786606d9b7b.jpg" alt="">
-      <h2>你好</h2>
+      <span class="xing">李晨</span><br>
+      <span class="shijian">2017-11-02</span>
+      </div>
+        <div class="ping">
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam ullam aperiam ipsum, iusto deleniti alias ab, libero doloremque sit asperiores quaerat eos iste blanditiis aut possimus nihil nemo soluta culpa, eum nobis veritatis quod velit molestiae. Nobis ab blanditiis inventore quas iste porro rem non culpa amet, obcaecati nesciunt harum?</p>
-    </div>
-    <div class="box">
-      <img src='./../../public/img/babyFade10.png' alt="">
-      <h2>你好</h2>
+      </div>
+  </div>
+        <div class="box">
+      <div class="kuang">
+      <img src="./../../public/img/product_5d786606d9b7b.jpg" alt="">
+      <span class="xing">李晨</span><br>
+      <span class="shijian">2017-11-02</span>
+      </div>
+        <div class="ping">
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam ullam aperiam ipsum, iusto deleniti alias ab, libero doloremque sit asperiores quaerat eos iste blanditiis aut possimus nihil nemo soluta culpa, eum nobis veritatis quod velit molestiae. Nobis ab blanditiis inventore quas iste porro rem non culpa amet, obcaecati nesciunt harum?</p>
-    </div>
-    <div class="box">
-      <img src="./../../public/img/product_5d7866338d1a4.jpg" alt="">
-      <h2>你好</h2>
+      </div>
+  </div>
+        <div class="box">
+      <div class="kuang">
+      <img src="./../../public/img/product_5d786606d9b7b.jpg" alt="">
+      <span class="xing">李晨</span><br>
+      <span class="shijian">2017-11-02</span>
+      </div>
+        <div class="ping">
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam ullam aperiam ipsum, iusto deleniti alias ab, libero doloremque sit asperiores quaerat eos iste blanditiis aut possimus nihil nemo soluta culpa, eum nobis veritatis quod velit molestiae. Nobis ab blanditiis inventore quas iste porro rem non culpa amet, obcaecati nesciunt harum?</p>
-    </div>
-    <div class="box">
-      <img src="./../../public/img/product_5d7866338d1a4.jpg" alt="">
-      <h2>你好</h2>
+      </div>
+  </div>
+        <div class="box">
+      <div class="kuang">
+      <img src="./../../public/img/product_5d786606d9b7b.jpg" alt="">
+      <span class="xing">李晨</span><br>
+      <span class="shijian">2017-11-02</span>
+      </div>
+        <div class="ping">
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam ullam aperiam ipsum, iusto deleniti alias ab, libero doloremque sit asperiores quaerat eos iste blanditiis aut possimus nihil nemo soluta culpa, eum nobis veritatis quod velit molestiae. Nobis ab blanditiis inventore quas iste porro rem non culpa amet, obcaecati nesciunt harum?</p>
-    </div>
-    <div class="box">
-      <img src="./../../public/img/babyFade10.png" alt="">
-      <h2>你好</h2>
+      </div>
+  </div>
+        <div class="box">
+      <div class="kuang">
+      <img src="./../../public/img/product_5d786606d9b7b.jpg" alt="">
+      <span class="xing">李晨</span><br>
+      <span class="shijian">2017-11-02</span>
+      </div>
+        <div class="ping">
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam ullam aperiam ipsum, iusto deleniti alias ab, libero doloremque sit asperiores quaerat eos iste blanditiis aut possimus nihil nemo soluta culpa, eum nobis veritatis quod velit molestiae. Nobis ab blanditiis inventore quas iste porro rem non culpa amet, obcaecati nesciunt harum?</p>
-    </div>
-    <div class="box">
-      <img src="./../../public/img/babyFade10.png" alt="">
-      <h2>你好</h2>
+      </div>
+  </div>
+        <div class="box">
+      <div class="kuang">
+      <img src="./../../public/img/product_5d786606d9b7b.jpg" alt="">
+      <span class="xing">李晨</span><br>
+      <span class="shijian">2017-11-02</span>
+      </div>
+        <div class="ping">
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam ullam aperiam ipsum, iusto deleniti alias ab, libero doloremque sit asperiores quaerat eos iste blanditiis aut possimus nihil nemo soluta culpa, eum nobis veritatis quod velit molestiae. Nobis ab blanditiis inventore quas iste porro rem non culpa amet, obcaecati nesciunt harum?</p>
-    </div>
-    <div class="box">
-      <img src="./../../public/img/product_5d7866338d1a4.jpg" alt="">
-      <h2>你好</h2>
+      </div>
+  </div>
+       <div class="box">
+      <div class="kuang">
+      <img src="./../../public/img/product_5d786606d9b7b.jpg" alt="">
+      <span class="xing">李晨</span><br>
+      <span class="shijian">2017-11-02</span>
+      </div>
+        <div class="ping">
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam ullam aperiam ipsum, iusto deleniti alias ab, libero doloremque sit asperiores quaerat eos iste blanditiis aut possimus nihil nemo soluta culpa, eum nobis veritatis quod velit molestiae. Nobis ab blanditiis inventore quas iste porro rem non culpa amet, obcaecati nesciunt harum?</p>
-    </div>
-    <div class="box">
-      <img src="./../../public/img/product_5d7866338d1a4.jpg" alt="">
-      <h2>你好</h2>
-      <p>Lorem, ipsum dolor sit amet consectquaerat eos iste blanditiis aut possimus nihil nemo soluta culpa, eum nobis veritatis quod velit molestiae. Nobis ab blanditiis inventore quas iste porro rem non culpa amet, obcaecati nesciunt harum?</p>
-    </div>
+      </div>
+  </div>
+       <div class="box">
+      <div class="kuang">
+      <img src="./../../public/img/product_5d786606d9b7b.jpg" alt="">
+      <span class="xing">李晨</span><br>
+      <span class="shijian">2017-11-02</span>
+      </div>
+        <div class="ping">
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam ullam aperiam ipsum, iusto deleniti alias ab, libero doloremque sit asperiores quaerat eos iste blanditiis aut possimus nihil nemo soluta culpa, eum nobis veritatis quod velit molestiae. Nobis ab blanditiis inventore quas iste porro rem non culpa amet, obcaecati nesciunt harum?</p>
+      </div>
+  </div>
   </div></div>
 </template>
 <script>
@@ -49,13 +89,30 @@ export default {
 </script>
   
 <style scoped>
- h2{
-     font-size: 30px;
+ .kuang{
+  width: 100%;
+  height: 70px;
+}
+.kuang img{
+  width: 70px;
+  height: 70px;;
+  float: left;
+}
+span {
+  font-size: 18px;
+  padding-top: 5px;
 
-     text-align: center;
-       
-     padding: 48px;
-   }
+}
+.kuang span{
+  margin: 5px;
+  padding: 5px;
+}
+.ping{
+  width: 100%;
+  height: 80%;
+  padding-top: 15px;
+}
+
 .container{
       width:80%;
       margin:20px auto;
@@ -76,12 +133,10 @@ export default {
       box-shadow: rgba(77, 173, 152, 0.733)  5px 10px 20px  ;
     }
     
-    .container .box img{
-      max-width: 100%;
-    }
     .container .box p{
       margin: 0;
-      padding:0 0 10px;
+      padding:10px;
+      margin: 10px;
       font-size:16px;
     }
     @media(max-width: 1200px)
