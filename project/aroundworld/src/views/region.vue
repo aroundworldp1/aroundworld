@@ -4,8 +4,6 @@
         <lunbo></lunbo>
          <h2>地区热门景点</h2>
         <mokuai></mokuai>
-        <h2>地区评论</h2>
-        <pubu></pubu>
         <my-footer></my-footer>
     </div>
 </template>
@@ -18,9 +16,7 @@ export default {
 <style scoped>
  h2{
      font-size: 30px;
-
      text-align: center;
-       
      padding: 48px;
    }
 </style>

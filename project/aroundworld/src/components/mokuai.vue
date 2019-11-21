@@ -64,9 +64,9 @@ export default {
      width: 100%;
      height: 800px;
    }
-   .cf{width: 100%;
+   .cf{
+     width: 100%;
    height:400px;
-   display: flex;
    text-align: center;
    align-items: center;
    align-content: center;
