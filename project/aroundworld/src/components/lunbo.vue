@@ -9,7 +9,6 @@
         <div class="switch" v-for="(item,i) of list" :key="i">
             <ul>
                 <li v-for="(item,i) of list" :key="i"><div class="ses" @mouseenter="enter(i)"><div class="sess"></div></div></li>
-               
             </ul>
     </div>
     </div>
