@@ -1,7 +1,7 @@
 <template>
     <div>   
         <my-header></my-header>
-        <lunbo></lunbo>
+        <lunbo2></lunbo2>
          <h2>景点热门文章</h2>
         <mokuai2></mokuai2>
         <h2>景点评论</h2>

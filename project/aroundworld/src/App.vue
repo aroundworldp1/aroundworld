@@ -9,4 +9,5 @@
 body{
   margin: 0;
 }
+@import './common/font/font.css'
 </style>
