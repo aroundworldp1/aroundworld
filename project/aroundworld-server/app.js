@@ -140,6 +140,21 @@ server.get("/showuser",(req,res)=>{
        }
     })
  })
+ server.get("/showregiondetail",(req,res)=>{
+  var rname =req.query.rname;
+  var sql="SELECT * FROM region where rname=?";
+  pool.query(sql,[rname],(err,result)=>{
+     if(err)throw err;
+     if(result.length==0){
+        res.send({code:-1,msg:"数据加载失败"});
+     }else{
+        var data=result;
+        console.log(result);
+      res.send({code:1,msg:'数据加载成功',rows:data});
+        
+     }
+  })
+})
  server.get("/showspot",(req,res)=>{
   var sql="SELECT * FROM spot";
   pool.query(sql,(err,result)=>{

@@ -44,11 +44,14 @@ export default {
             })
         },
         loadregion(){
-            var url='showregion';
-           this.axios.get(url).then(res=>{
+             var  rname=this.aera;
+          var obj ={rname:rname};
+            var url='showregiondetail';
+           this.axios.get(url,{params:obj}).then(res=>{
                 if(res.data.code===1){ 
                     var list=res.data.rows; 
                     this.list=list[0];
+                    
                 }
             })
             .catch(err=>{

@@ -19,9 +19,7 @@ export default {
 <style scoped>
  h2{
      font-size: 30px;
-
-     text-align: center;
-       
+     text-align: center;   
      padding: 48px;
    }
 </style>

@@ -24,6 +24,7 @@ export default {
      },
     data(){
         return{
+           aera:this.$route.query.aera,
            list:[],
         }
     },
@@ -34,12 +35,14 @@ export default {
        this.$router.push({path:'/spot',query:{sname:sname}});
       },
         loadspot(){
-            var url='showspot';
-           this.axios.get(url).then(res=>{
+           var  aera=this.aera;
+          var obj ={aera:aera};
+            var url='showaeraspot';
+           this.axios.get(url,{params:obj}).then(res=>{
                 if(res.data.code===1){ 
                     var list=res.data.rows; 
                     this.list=list;
-                    console.log(list[0].id);
+                    
                 }
             })
             .catch(err=>{
