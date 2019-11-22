@@ -2,7 +2,7 @@
     <div>   
         <my-header></my-header>
         <lunbo></lunbo>
-         <h2>地区热门景点</h2>
+         <h2>该地区热门景点</h2>
         <mokuai></mokuai>
         <my-footer></my-footer>
     </div>

@@ -154,6 +154,21 @@ server.get("/showuser",(req,res)=>{
      }
   })
 })
+server.get("/showaeraspot",(req,res)=>{
+  var aera =req.query.aera;
+  var sql="SELECT * FROM spot where aera=?";
+  pool.query(sql,[aera],(err,result)=>{
+     if(err)throw err;
+     if(result.length==0){
+        res.send({code:-1,msg:"数据加载失败"});
+     }else{
+        var data=result;
+        console.log(result);
+      res.send({code:1,msg:'数据加载成功',rows:data});
+        
+     }
+  })
+})
 server.get("/showspotdetail",(req,res)=>{
   var sname =req.query.sname;
   var sql="SELECT * FROM spot where sname=?";

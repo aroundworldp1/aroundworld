@@ -1,37 +1,54 @@
 <template>
     <!--轮播图组件-->
     <div class="dark"> <!--大图-->
-       <div class="call" v-for="(item,i) of list" :key="i" v-if="lunbotu==i"><img :src="'http://127.0.0.1:3000/'+item.rpic" alt=""></div>
-        <div class="regioninfo"  v-for="(item,i) of list" :key="i" v-if="lunbotu==i">
-            <p class="p1">{{item.rname}}</p>
-            <p class="p2">{{item.info}}</p>
+       <div class="call" v-for="(item,i) of pic" :key="i" v-if="lunbotu==i"><img :src="'http://127.0.0.1:3000/'+item.spic" alt=""></div>
+        <div class="regioninfo">
+            <p class="p1">{{list.rname}}</p>
+            <p class="p2">{{list.info}}</p>
         </div>
-        <div class="switch" v-for="(item,i) of list" :key="i">
+        <div class="switch" v-for="(item,i) of pic" :key="i">
             <ul>
-                <li v-for="(item,i) of list" :key="i"><div class="ses" @mouseenter="enter(i)"><div class="sess"></div></div></li>
+                <li v-for="(item,i) of pic" :key="i"><div class="ses" @mouseenter="enter(i)"><div class="sess"></div></div></li>
             </ul>
     </div>
     </div>
+    
 </template>
 <script>
 export default {
      created(){
        this.loadregion();
+       this.loadsopt();
      },
     data(){
         return{
+            aera:this.$route.query.aera,
            lunbotu:1,
            list:[],
+           pic:[],
         }
     },
-    methods:{ 
+    methods:{
+         loadsopt(){
+             var  aera=this.aera;
+          var obj ={aera:aera};
+            var url='showaeraspot';
+           this.axios.get(url,{params:obj}).then(res=>{
+                if(res.data.code===1){ 
+                    var pic=res.data.rows; 
+                    this.pic=pic;
+                }
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+        },
         loadregion(){
             var url='showregion';
            this.axios.get(url).then(res=>{
                 if(res.data.code===1){ 
                     var list=res.data.rows; 
-                    this.list=list;
-                    console.log(list[0].rid);
+                    this.list=list[0];
                 }
             })
             .catch(err=>{

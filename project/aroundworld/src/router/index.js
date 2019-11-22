@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import region from '../views/region.vue'
+import index from '../views/index.vue'
 import spot from '../views/spot.vue'
 import userinfo from '../views/userinfo.vue'
 import article from '../views/article.vue'
@@ -17,6 +18,7 @@ const routes = [
   {path:'/login',component:login},
   {path:'/region',component:region},
   {path:'/article',component:article},
+  {path:'/index',component:index},
   {path:'/spot',component:spot},
   {path:'/userinfo',component:userinfo},
 ]
