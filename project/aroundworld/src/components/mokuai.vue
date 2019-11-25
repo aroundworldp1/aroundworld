@@ -33,10 +33,11 @@ export default {
     methods:{ 
       next(i){
         console.log(i);
+        var aera=this.aera;
         var sname=this.list[i].sname;
         var uname=this.uname;
         var showlogin=this.showlogin;
-       this.$router.push({path:'/spot',query:{sname:sname,uname:uname,showlogin:showlogin}});
+       this.$router.push({path:'/spot',query:{sname:sname,uname:uname,showlogin:showlogin,aera:aera}});
       },
         loadspot(){
            var  aera=this.aera;

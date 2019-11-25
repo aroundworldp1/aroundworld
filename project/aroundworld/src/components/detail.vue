@@ -5,7 +5,7 @@
             <a href="">环球</a>
             <div id="dh3">
               <ul>   
-                <li><a href="http://127.0.0.1:8080/#/spot">上一级</a></li>
+                <li @click='up'><a>上一级</a></li>
                 <li><a href="">回到顶部</a></li>
                 <li v-show="!showlogin" @click='denglu'><a>登录</a></li> 
                <li class="nav-bo" v-show="showlogin==1" @click="tanchaung"><a>welcome! {{uname}}</a></li>
@@ -32,12 +32,18 @@ export default {
     ,data(){
         return{
           list:[],
+          sname:this.$route.query.sname,
           aid:this.$route.query.aid,
            aera:this.$route.query.aera,
             showlogin:this.$route.query.showlogin,
              uname:this.$route.query.uname,
         }
     },methods:{
+      up(){
+        var sname=this.sname;
+        var uname=this.uname;
+        this.$router.push({path:'/spot',query:{uname:uname,sname:sname,showlogin:1}});
+      },
        denglu(){
         var aid=this.aid;
         this.$router.push({path:'/login',query:{aid:aid}});

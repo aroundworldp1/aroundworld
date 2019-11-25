@@ -36,7 +36,7 @@ export default {
         var showlogin=this.showlogin;
         var uname=this.uname;
         var aid=this.list[i].aid;
-       this.$router.push({path:'/article',query:{aid:aid,showlogin:showlogin,uname:uname}});
+       this.$router.push({path:'/article',query:{aid:aid,showlogin:showlogin,uname:uname,sname:sname}});
       },
         loadarticle(){
           var  spot=this.sname;

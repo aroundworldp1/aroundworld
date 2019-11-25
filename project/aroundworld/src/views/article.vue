@@ -12,20 +12,19 @@
 export default {
     data(){
         return{
-            sname:this.$route.query.sname,
-             aera:this.$route.query.aera,
+             aid:this.$route.query.aid,
             showlogin:this.$route.query.showlogin,
              uname:this.$route.query.uname,
              on:1,
         }
     },methods:{
         addcomment(){
-             var sname=this.sname;
+             var aid=this.aid;
              var showlogin=this.showlogin;
              var uname=this.uname;
              var on=this.on;
              if (showlogin==1) {
-                 this.$router.push({path:'/addcomment',query:{sname:sname,uname:uname}});
+                 this.$router.push({path:'/addcomment',query:{aid:aid,uname:uname}});
              }else{
                   this.on=0;
              }

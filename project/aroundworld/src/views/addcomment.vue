@@ -11,7 +11,10 @@
           <p>注册时间:{{uinfo.birthday}}</p>
         </div>
         </div>
-      
+        <div class='cc'><h3>发表评论</h3>
+        文本:<el-input type="textarea" rows='10' v-model="content" placeholder="请输入文本"></el-input>
+        <el-button @click="insert">发表</el-button>
+        </div>
    <div class="quit" @click='back'>X</div>
   </div></div></div>
 </template>
@@ -20,60 +23,47 @@
 export default {
      created(){
        this.loaduser();
-       this.loadart();
-       this.loadcom();
      },data(){
         return{
           uinfo:[],
-          ainfo:[],
-          cinfo:[],
           uname:this.$route.query.uname,
+          sname:this.$route.query.sname,
+          aid:this.$route.query.aid,
+          avatar:'',
+          content:'',
+          puttime:'',
         }
     },methods:{
+      insert(){
+        var url='insertcom';
+        var uname=this.uname;
+        var sname=this.sname;
+        var aid=this.aid;
+        var avatar=this.uinfo.avatar;
+        var content=this.content;
+        var puttime=this.puttime;
+        var obj ={uname:uname,sname:sname,aid:aid,content:content,avatar:avatar,puttime:puttime};
+        this.axios.get(url,{params:obj}).then(res=>{
+          if(res.data.code===1){
+           if(this.aid){
+              this.$router.push({path:'/article',query:{aid:aid,uname:uname,showlogin:1}});
+          }else{
+               this.$router.push({path:'/spot',query:{sname:sname,uname:uname,showlogin:1}});
+          }
+            
+          }
+        }).catch(err=>{
+           console.log(err)
+        })
+      },
       loaduser(){
         var url='showuser';
-        var  u=this.uname;
+        var u=this.uname;
           var obj ={uname:u};
            this.axios.get(url,{params:obj}).then(res=>{
                 if(res.data.code===1){ 
                     var uinfo=res.data.rows[0]; 
                     this.uinfo=uinfo;
-                    console.log(uinfo);
-                    console.log(uinfo.birthday);
-                }
-            })
-            .catch(err=>{
-                console.log(err)
-            })
-      },
-      loadart(){
-        var url='showart';
-        var  u=this.uname;
-          var obj ={writer:u};
-           this.axios.get(url,{params:obj}).then(res=>{
-                if(res.data.code===1){ 
-                    var ainfo=res.data.rows; 
-                    this.ainfo=ainfo;
-                    this.ainfo=this.ainfo.concat(res.data.rows);
-                    console.log(ainfo);
-                    console.log(ainfo[0].title);
-                }
-            })
-            .catch(err=>{
-                console.log(err)
-            })
-      },
-      loadcom(){
-        var url='showcom';
-        var  u=this.uname;
-          var obj ={writer:u};
-           this.axios.get(url,{params:obj}).then(res=>{
-                if(res.data.code===1){ 
-                    var cinfo=res.data.rows; 
-                    this.cinfo=cinfo;
-                    this.cinfo=this.cinfo.concat(res.data.rows);
-                    console.log(cinfo);
-                    console.log(cinfo[0].content);
                 }
             })
             .catch(err=>{
@@ -142,8 +132,11 @@ export default {
      color: rgba(37, 71, 71, 0.349);
     }
     .cc{
-      width: 100%;
-      border: solid  rgba(97, 48, 48, 0.24) 3px;
+      width: 40%;
+    height: 50%;
+    background-color: aliceblue;
+    margin-top:30px;
+    margin-left:70px;
     }
     .quit{
       position: absolute;

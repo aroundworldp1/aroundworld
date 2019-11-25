@@ -80,7 +80,42 @@ server.post("/insert",(req,res)=>{
       }
    })
 })
-
+server.get("/insertart",(req,res)=>{
+  var writer=req.query.uname;
+  var spot=req.query.sname;
+  var title=req.query.title;
+  var content=req.query.content;
+  var apic=req.query.apic;
+  var puttime=req.query.puttime;
+  var sql="INSERT INTO article(writer,spot,title,content,apic,puttime) values(?,?,?,?,?,?)";
+  pool.query(sql,[writer,spot,title,content,apic,puttime],(err,result)=>{
+     if(err)throw err;
+     if(result.affectedRows==1){
+        res.send({code:1,msg:"发表成功"});
+        return;
+     }else{
+        res.send({code:-1,msg:"发表失败"})
+     }
+  })
+})
+server.get("/insertcom",(req,res)=>{
+  var writer=req.query.uname;
+  var spot=req.query.sname;
+  var articleid=req.query.aid;
+  var content=req.query.content;
+  var avatar=req.query.avatar;
+  var puttime=req.query.puttime;
+  var sql="INSERT INTO comment(writer,spot,articleid,content,avatar,puttime) values(?,?,?,?,?,?)";
+  pool.query(sql,[writer,spot,articleid,content,avatar,puttime],(err,result)=>{
+     if(err)throw err;
+     if(result.affectedRows==1){
+        res.send({code:1,msg:"发表成功"});
+        return;
+     }else{
+        res.send({code:-1,msg:"发表失败"})
+     }
+  })
+})
 server.get("/showuser",(req,res)=>{
     var uname=req.query.uname;
     var sql="SELECT birthday,email,avatar,phone,gender FROM user WHERE uname=?";

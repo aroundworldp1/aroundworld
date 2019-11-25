@@ -10,7 +10,7 @@
           <li class="nav-bo" v-show="showlogin==1" @click="tanchaung"><a>welcome! {{uname}}</a></li>
            <li><a href="">回到顶部</a></li>
             <li @click="back"><a>上一级</a></li>
-             <li><a href="">首页</a></li>
+             <li @click='shou'><a>首页</a></li>
    
         </ul>
       </div>
@@ -28,6 +28,12 @@ export default {
         }
     },
     methods:{ 
+      shou(){
+        var showlogin=this.showlogin;
+        var aera=this.aera;
+        var uname=this.uname;
+        this.$router.push({path:'/region',query:{aera:aera,uname:uname,showlogin:showlogin}});
+      },
       denglu(){
         var aera=this.aera;
         this.$router.push({path:'/login',query:{aera:aera}});
