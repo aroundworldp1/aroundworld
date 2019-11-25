@@ -11,11 +11,15 @@ export default {
     data(){
         return{
             uname:"",
-            password:""
+            password:"",
+            aera:this.$route.query.aera,
+             aid:this.$route.query.aid,
         }
     },
     methods:{
         login(){
+            var aera=this.aera;
+            var aid=this.aid;
             var reg = /^[a-z0-9]{4,12}$/i;
             var u = this.uname;
             var p = this.password;
@@ -38,7 +42,17 @@ export default {
             this.axios.get(url,{params:obj}).then(res=>{
                 if(res.data.code===1){
                     this.$message("登录成功");
-                    this.$router.push({path:'/region',query:{showlogin:1,uname:u}})
+                    if(aid){
+                        this.$router.push({path:'/article',query:{uname:u,showlogin:1,aid:aid}})  
+                    }else if(!aera){
+                        this.$router.push({path:'/index',query:{uname:u,showlogin:1}})
+                        }else{
+                            this.$router.push({path:'/region',query:{uname:u,showlogin:1,aera:aera}})
+                        }
+                        
+                        
+                    
+                    
                 }else{
                     this.$message("用户名和密码有误");
                 }

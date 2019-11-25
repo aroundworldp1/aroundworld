@@ -6,7 +6,7 @@
       <a href="">环球</a>
       <div id="dh">
         <ul>
-          <li v-show="!showlogin"><a href="http://127.0.0.1:8080/#/login" >登录</a></li> 
+          <li v-show="!showlogin" @click='denglu'><a>登录</a></li> 
           <li class="nav-bo" v-show="showlogin==1" @click="tanchaung"><a>welcome! {{uname}}</a></li>
            <li><a href="">回到顶部</a></li>
             <li @click="back"><a>上一级</a></li>
@@ -22,11 +22,16 @@
 export default {
     data(){
         return{
+            aera:this.$route.query.aera,
             showlogin:this.$route.query.showlogin,
              uname:this.$route.query.uname,
         }
     },
     methods:{ 
+      denglu(){
+        var aera=this.aera;
+        this.$router.push({path:'/login',query:{aera:aera}});
+      },
         tanchaung(){
           var u=this.uname;
           this.$router.push({path:'/userinfo',query:{uname:u}});

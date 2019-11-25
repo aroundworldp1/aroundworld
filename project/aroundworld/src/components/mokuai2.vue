@@ -25,13 +25,18 @@ export default {
     data(){
         return{
            sname:this.$route.query.sname,
+            showlogin:this.$route.query.showlogin,
+             uname:this.$route.query.uname,
            list:[],
         }
     },
     methods:{ 
       next(i){
+        var sname=this.sname;
+        var showlogin=this.showlogin;
+        var uname=this.uname;
         var aid=this.list[i].aid;
-       this.$router.push({path:'/article',query:{aid:aid}});
+       this.$router.push({path:'/article',query:{aid:aid,showlogin:showlogin,uname:uname}});
       },
         loadarticle(){
           var  spot=this.sname;

@@ -11,6 +11,7 @@ import mokuai2 from './components/mokuai2'
 import pubu from './components/pubu'
 import pubu2 from './components/pubu2'
 import detail from './components/detail'
+import tanchu from './components/tanchu'
 
 
 import ElementUI from 'element-ui'
@@ -30,6 +31,7 @@ Vue.component('mokuai2',mokuai2);
 Vue.component('pubu',pubu);
 Vue.component('pubu2',pubu2);
 Vue.component('detail',detail);
+Vue.component('tanchu',tanchu);
 
 Vue.use(ElementUI);
 

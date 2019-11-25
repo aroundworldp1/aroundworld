@@ -25,6 +25,8 @@ export default {
     data(){
         return{
            aera:this.$route.query.aera,
+            showlogin:this.$route.query.showlogin,
+             uname:this.$route.query.uname,
            list:[],
         }
     },
@@ -32,7 +34,9 @@ export default {
       next(i){
         console.log(i);
         var sname=this.list[i].sname;
-       this.$router.push({path:'/spot',query:{sname:sname}});
+        var uname=this.uname;
+        var showlogin=this.showlogin;
+       this.$router.push({path:'/spot',query:{sname:sname,uname:uname,showlogin:showlogin}});
       },
         loadspot(){
            var  aera=this.aera;

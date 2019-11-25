@@ -11,13 +11,17 @@ export default {
     data(){
         return{
            list:[],
+            showlogin:this.$route.query.showlogin,
+             uname:this.$route.query.uname,
         }
     },
     methods:{ 
         next(i){
             var aera=this.list[i].rname;
+            var uname=this.uname;
+        var showlogin=this.showlogin;
             console.log(aera);
-            this.$router.push({path:'/region',query:{aera:aera}});
+            this.$router.push({path:'/region',query:{aera:aera,uname:uname,showlogin:showlogin}});
         },
         loadregion(){
             var url='showregion';

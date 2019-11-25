@@ -7,7 +7,8 @@
               <ul>   
                 <li><a href="http://127.0.0.1:8080/#/spot">上一级</a></li>
                 <li><a href="">回到顶部</a></li>
-                <li><a href="http://127.0.0.1:8080/#/login">登录</a></li>
+                <li v-show="!showlogin" @click='denglu'><a>登录</a></li> 
+               <li class="nav-bo" v-show="showlogin==1" @click="tanchaung"><a>welcome! {{uname}}</a></li>
               </ul>
             </div>
         </div>
@@ -32,8 +33,20 @@ export default {
         return{
           list:[],
           aid:this.$route.query.aid,
+           aera:this.$route.query.aera,
+            showlogin:this.$route.query.showlogin,
+             uname:this.$route.query.uname,
         }
     },methods:{
+       denglu(){
+        var aid=this.aid;
+        this.$router.push({path:'/login',query:{aid:aid}});
+      },
+        tanchaung(){
+          var u=this.uname;
+          this.$router.push({path:'/userinfo',query:{uname:u}});
+          
+        },
         loadarticle(){ 
         var  aid=this.aid;
           var obj ={aid:aid};

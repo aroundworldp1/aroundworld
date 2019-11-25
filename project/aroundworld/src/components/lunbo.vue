@@ -17,12 +17,14 @@
 <script>
 export default {
      created(){
+         this.loadsopt();
        this.loadregion();
-       this.loadsopt();
      },
     data(){
         return{
-            aera:this.$route.query.aera,
+             aera:this.$route.query.aera,
+            showlogin:this.$route.query.showlogin,
+             uname:this.$route.query.uname,
            lunbotu:1,
            list:[],
            pic:[],
@@ -30,7 +32,8 @@ export default {
     },
     methods:{
          loadsopt(){
-             var  aera=this.aera;
+             var aera=this.aera;
+             console.log(aera);
           var obj ={aera:aera};
             var url='showaeraspot';
            this.axios.get(url,{params:obj}).then(res=>{
@@ -44,14 +47,13 @@ export default {
             })
         },
         loadregion(){
-             var  rname=this.aera;
+            var rname=this.aera;
           var obj ={rname:rname};
             var url='showregiondetail';
            this.axios.get(url,{params:obj}).then(res=>{
                 if(res.data.code===1){ 
                     var list=res.data.rows; 
                     this.list=list[0];
-                    
                 }
             })
             .catch(err=>{
