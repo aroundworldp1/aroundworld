@@ -8,12 +8,13 @@
         生日:<el-date-picker v-model="date" type="date" placeholder="选择日期"></el-date-picker><br>
         手机号码:<el-input v-model="phone" placeholder="请输入手机号码"></el-input>
         邮箱:<el-input v-model="email" placeholder="请输入邮箱"></el-input>
-        <el-button @click="insert">注册</el-button>
+   <el-button @click="insert">注册</el-button>
     </div>
     </div>
 </template>
-<script>
+<script> 
 export default {
+   
     data(){
         return{
             uname:"",
@@ -21,11 +22,13 @@ export default {
             gender:"1",
             date:"",
             phone:"",
-            email:""
-        }
+            email:"",
+            avatar:'',
+	    }
     },
     methods:{
         insert(){
+            var result=this.result;
             var reg1=/^[a-z0-9]{4,12}$/i;
             var uname=this.uname;
             var upwd=this.password;
@@ -96,4 +99,51 @@ export default {
     height: 50%;
     background-color: aliceblue;
 }
+.hide {
+    display: none;
+}
+
+.img-item {
+    width: 4.4rem;
+    height: 3.75rem;
+    float: left;
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.img-item img {
+    width: 100%;
+    height: 100%;
+}
+.active-pic {
+    font-size: 0.6rem;
+    color: #9b9b9b;
+    padding: 0 1rem 0 1.5rem;
+    margin-top: 1rem;
+}
+
+.add-pic {
+    background: #f3f3f3;
+    width: 4.4rem;
+    height: 3.75rem;
+    float: left;
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+    text-align: center;
+    font-size: 2rem;
+    line-height: 3.5rem;
+    color: #979797;
+    position: relative;
+}
+
+.add-pic input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    opacity: 0;
+}
+
 </style>

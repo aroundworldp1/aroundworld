@@ -68,11 +68,9 @@ export default {
   }
    .sex{
      width:100%;
-     height: 800px
    }
    .fg{
      width: 100%;
-     height: 800px;
    }
    .cf{
      width: 100%;

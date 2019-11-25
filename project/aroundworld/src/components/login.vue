@@ -4,6 +4,7 @@
         用户名:<el-input v-model="uname" placeholder="请输入用户名"></el-input>
         密码:<el-input placeholder="请输入密码" v-model="password" show-password></el-input>
         <el-button @click="login">登录</el-button>
+        <el-button @click="insert">注册</el-button>
     </div></div>
 </template>
 <script>
@@ -17,6 +18,11 @@ export default {
         }
     },
     methods:{
+        insert(){
+            var aera=this.aera;
+            var aid=this.aid;
+            this.$router.push({path:'/insert',query:{aid:aid,aera:aera}})  
+        },
         login(){
             var aera=this.aera;
             var aid=this.aid;
@@ -43,7 +49,7 @@ export default {
                 if(res.data.code===1){
                     this.$message("登录成功");
                     if(aid){
-                        this.$router.push({path:'/article',query:{uname:u,showlogin:1,aid:aid}})  
+                        this.$router.push({path:'/article',query:{uname:u,showlogin:1,aid:aid,aera:aera}})  
                     }else if(!aera){
                         this.$router.push({path:'/index',query:{uname:u,showlogin:1}})
                         }else{
