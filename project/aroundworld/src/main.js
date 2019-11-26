@@ -2,7 +2,6 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import echarts from './../node_modules/echarts'
 import header from './components/header'
 import lunbo from './components/lunbo'
 import lunbo2 from './components/lunbo2'
@@ -22,7 +21,6 @@ import './common/font/font.css'
 axios.defaults.baseURL="http://127.0.0.1:3000/"
 axios.defaults.withCredentials=true
 Vue.prototype.axios=axios
-Vue.prototype.$echarts = echarts
 
 Vue.component('my-header',header);
 Vue.component('lunbo',lunbo);
