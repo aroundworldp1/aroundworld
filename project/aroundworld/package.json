@@ -33,5 +33,15 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "map":[
+  {
+      "name": "United States",
+      "value": [345,"United States"]
+  },{
+      "name": "China",
+      "value": [200,"China"]
+  }
+]
 }
+
