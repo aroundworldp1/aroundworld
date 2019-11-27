@@ -294,3 +294,27 @@ server.get("/showartcom",(req,res)=>{
      }
   })
 })
+server.get("/delcom",(req,res)=>{
+   var cid=req.query.cid;
+   var sql="DELETE FROM comment where cid=?";
+   pool.query(sql,[cid],(err,result)=>{
+      if(err)throw err;
+      if(result.affectedRows>0){
+         res.send({code:1,msg:"删除成功"});
+      }else{
+         res.send({code:-1,msg:"删除失败"});
+      }
+   })
+})
+server.get("/delart",(req,res)=>{
+   var aid=req.query.aid;
+   var sql="DELETE FROM article where aid=?";
+   pool.query(sql,[aid],(err,result)=>{
+      if(err)throw err;
+      if(result.affectedRows>0){
+         res.send({code:1,msg:"删除成功"});
+      }else{
+         res.send({code:-1,msg:"删除失败"});
+      }
+   })
+})

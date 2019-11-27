@@ -14,13 +14,12 @@
         <div class="aa">
             <h2 >&nbsp;&nbsp;{{uname}}&nbsp;&nbsp;最近评论</h2>
             <div class="bb"> 
-          <ul v-for="(item,i) of cinfo" :key="i">
+          <ul v-for="( item,i) of cinfo" :key="i">
             <li>{{item.cid}}</li>
             <li>{{item.content}}</li>
             <li>{{item.puttime}}</li>
-            <li>&nbsp;&nbsp;<a href="">修改</a>&nbsp;<a href="">删除</a></li>
-          </ul>
-          
+            <li>&nbsp;&nbsp;<el-button>修改</el-button>&nbsp;<el-button @click="del1(i)">删除</el-button></li>
+          </ul>  
       </div> 
       <div class="cc"></div>
       <h2 style="margin-top: 50px;">&nbsp;&nbsp;{{uname}}&nbsp;&nbsp;最近文章</h2>
@@ -29,7 +28,7 @@
             <li>{{item.aid}}</li>
             <li>{{item.title}}</li>
             <li>{{item.puttime}}</li>
-            <li>&nbsp;&nbsp;<a href="">修改</a>&nbsp;<a href="">删除</a></li>
+            <li>&nbsp;&nbsp;<el-button>修改</el-button>&nbsp;<el-button @click="del2(i)">删除</el-button></li>
           </ul>
       </div> 
     </div>
@@ -51,6 +50,38 @@ export default {
           uname:this.$route.query.uname,
         }
     },methods:{
+      del1(i){
+        var cid=this.cinfo[i].cid;
+        var url="delcom";
+        var obj={cid:cid};
+        this.axios.get(url,{params:obj}).then(res=>{
+          if(res.data.code===1){
+            this.$message("删除成功")
+            this.$router.go(0);
+          }else{
+            this.$message("删除失败")
+          }
+        })
+        .catch(err=>{
+          console.log(err)
+        })
+      },
+      del2(i){
+        var aid=this.ainfo[i].aid;
+        var url="delart";
+        var obj={aid:aid};
+        this.axios.get(url,{params:obj}).then(res=>{
+          if(res.data.code===1){
+            this.$message("删除成功");
+            this.$router.go(0);
+          }else{
+            this.$message("删除失败")
+          }
+        })
+        .catch(err=>{
+          console.log(err)
+        })
+      },
       loaduser(){
         var url='showuser';
         var  u=this.uname;
