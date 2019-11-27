@@ -18,7 +18,7 @@
             <li>{{item.cid}}</li>
             <li>{{item.content}}</li>
             <li>{{item.puttime}}</li>
-            <li>&nbsp;&nbsp;<el-button @click="up1">修改</el-button>&nbsp;<el-button @click="del1(i)">删除</el-button></li>
+            <li>&nbsp;&nbsp;<el-button @click="upcom">修改</el-button>&nbsp;<el-button @click="delcom(i)">删除</el-button></li>
           </ul>  
       </div> 
       <div class="cc"></div>
@@ -28,7 +28,7 @@
             <li>{{item.aid}}</li>
             <li>{{item.title}}</li>
             <li>{{item.puttime}}</li>
-            <li>&nbsp;&nbsp;<el-button>修改</el-button>&nbsp;<el-button @click="del2(i)">删除</el-button></li>
+            <li>&nbsp;&nbsp;<el-button>修改</el-button>&nbsp;<el-button @click="delart(i)">删除</el-button></li>
           </ul>
       </div> 
     </div>
@@ -50,11 +50,11 @@ export default {
           uname:this.$route.query.uname,
         }
     },methods:{
-      up1(){
+      upcom(){
         var uname=this.uname;  
         this.$router.push({path:'/addcomment',query:{uname:uname}})
       },
-      del1(i){
+      delcom(i){
         var cid=this.cinfo[i].cid;
         var url="delcom";
         var obj={cid:cid};
@@ -70,7 +70,7 @@ export default {
           console.log(err)
         })
       },
-      del2(i){
+      delart(i){
         var aid=this.ainfo[i].aid;
         var url="delart";
         var obj={aid:aid};
