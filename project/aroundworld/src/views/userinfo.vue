@@ -8,7 +8,7 @@
           <p>性别: {{uinfo.gender}} </p>
           <p>邮箱: {{uinfo.email}} </p>
           <p>电话: {{uinfo.phone}} </p>
-          <p>注册时间:{{uinfo.birthday}}</p>
+          <p>生日:{{uinfo.birthday}}</p>
         </div>
         </div>
         <div class="aa">
@@ -18,7 +18,7 @@
             <li>{{item.cid}}</li>
             <li class='cont'>{{item.content}}</li>
             <li class='cont'>{{item.puttime}}</li>
-            <li>&nbsp;&nbsp;<el-button @click="upcom">修改</el-button>&nbsp;<el-button @click="delcom(i)">删除</el-button></li>
+            <li>&nbsp;&nbsp;<el-button @click="upcom(i)">修改</el-button>&nbsp;<el-button @click="delcom(i)">删除</el-button></li>
           </ul>  
       </div> 
       <div class="cc"></div>
@@ -50,9 +50,10 @@ export default {
           uname:this.$route.query.uname,
         }
     },methods:{
-      upcom(){
+      upcom(i){
         var uname=this.uname;  
-        this.$router.push({path:'/addcomment',query:{uname:uname}})
+        var cid=this.cinfo[i].cid;
+        this.$router.push({path:'/addcomment',query:{uname:uname,cid:cid}})
       },
        delcom(i){
          var cid=this.cinfo[i].cid;

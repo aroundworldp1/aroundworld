@@ -12,7 +12,7 @@
         </div>
         </div>
         <div class='cc'><h3>发表评论</h3>
-        文本:<el-input type="textarea" rows='10' v-model="content" placeholder="请输入文本"></el-input>
+        文本:<el-input type="textarea" rows='10' v-model="content" :placeholder="cinfo.content"></el-input>
         <el-button @click="insert">发表</el-button>
         </div>
    <div class="quit" @click='back'>X</div>
@@ -23,18 +23,52 @@
 export default {
      created(){
        this.loaduser();
+       this.loadcom();
      },data(){
         return{
           uinfo:[],
+          cinfo:[],
           uname:this.$route.query.uname,
           sname:this.$route.query.sname,
           aid:this.$route.query.aid,
+          cid:this.$route.query.cid,
           avatar:'',
           content:'',
           puttime:'',
         }
     },methods:{
+      loadcom(){
+        var cid=this.cid;
+        if(cid){
+           var url='showcomid';
+          var obj ={cid:cid};
+           this.axios.get(url,{params:obj}).then(res=>{
+                if(res.data.code===1){ 
+                    var cinfo=res.data.rows[0]; 
+                    this.cinfo=cinfo;
+                    console.log(cinfo.content);
+                }
+            })
+            .catch(err=>{
+                console.log(err)
+            });
+        }else{
+          console.log(1);
+        }
+      },
       insert(){
+        var cid=this.cid;
+        if(cid){
+          var url='delcom';
+          var obj ={cid:cid};
+           this.axios.get(url,{params:obj}).then(res=>{
+                if(res.data.code===1){ 
+                }
+            })
+            .catch(err=>{
+                console.log(err)
+            });
+        }
         var url='insertcom';
         var uname=this.uname;
         var sname=this.sname;
@@ -42,19 +76,22 @@ export default {
         var avatar=this.uinfo.avatar;
         var content=this.content;
         var puttime=this.puttime;
-        var obj ={uname:uname,sname:sname,aid:aid,content:content,avatar:avatar,puttime:puttime};
+        var obj ={cid:cid,uname:uname,sname:sname,aid:aid,content:content,avatar:avatar,puttime:puttime};
         this.axios.get(url,{params:obj}).then(res=>{
           if(res.data.code===1){
            if(this.aid){
               this.$router.push({path:'/article',query:{aid:aid,uname:uname,showlogin:1}});
-          }else{
+          }else if(this.sname){
                this.$router.push({path:'/spot',query:{sname:sname,uname:uname,showlogin:1}});
+          }else{
+              this.$router.push({path:'/userinfo',query:{uname:uname,showlogin:1}});
           }
-            
           }
         }).catch(err=>{
            console.log(err)
         })
+        
+        
       },
       loaduser(){
         var url='showuser';

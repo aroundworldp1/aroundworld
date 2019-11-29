@@ -69,7 +69,7 @@ server.post("/insert",(req,res)=>{
    var birthday=req.body.birthday;
    var email=req.body.email;
    var phone=req.body.phone;
-   var sql="INSERT INTO user(uname,upwd,gender,left(birthday,9) as birthday,email,phone) values(?,?,?,?,?,?)";
+   var sql="INSERT INTO user(uname,upwd,gender,left(birthday,10) as birthday,email,phone) values(?,?,?,?,?,?)";
    pool.query(sql,[uname,upwd,gender,birthday,email,phone],(err,result)=>{
       if(err)throw err;
       if(result.affectedRows==1){
@@ -87,7 +87,7 @@ server.get("/insertart",(req,res)=>{
   var content=req.query.content;
   var apic=req.query.apic;
   var puttime=req.query.puttime;
-  var sql="INSERT INTO article(writer,spot,title,content,left(puttime,9) as puttime,apic) values(?,?,?,?,?,?)";
+  var sql="INSERT INTO article(writer,spot,title,content,puttime,apic) values(?,?,?,?,?,?)";
   pool.query(sql,[writer,spot,title,content,puttime,apic],(err,result)=>{
      if(err)throw err;
      if(result.affectedRows==1){
@@ -99,14 +99,15 @@ server.get("/insertart",(req,res)=>{
   })
 })
 server.get("/insertcom",(req,res)=>{
+  var cid=req.query.cid;
   var writer=req.query.uname;
   var spot=req.query.sname;
   var articleid=req.query.aid;
   var content=req.query.content;
   var avatar=req.query.avatar;
   var puttime=req.query.puttime;
-  var sql="INSERT INTO comment(writer,spot,articleid,content,left(puttime,9) as puttime,avatar) values(?,?,?,?,?,?)";
-  pool.query(sql,[writer,spot,articleid,content,puttime,avatar],(err,result)=>{
+  var sql="INSERT INTO comment(cid,writer,spot,articleid,content,puttime,avatar) values(?,?,?,?,?,?,?)";
+  pool.query(sql,[cid,writer,spot,articleid,content,puttime,avatar],(err,result)=>{
      if(err)throw err;
      if(result.affectedRows==1){
         res.send({code:1,msg:"发表成功"});
@@ -118,7 +119,7 @@ server.get("/insertcom",(req,res)=>{
 })
 server.get("/showuser",(req,res)=>{
     var uname=req.query.uname;
-    var sql="SELECT left(birthday,9) as birthday,email,avatar,phone,gender FROM user WHERE uname=?";
+    var sql="SELECT left(birthday,10) as birthday,email,avatar,phone,gender FROM user WHERE uname=?";
     pool.query(sql,[uname],(err,result)=>{
        if(err)throw err;
        if(result.length==0){
@@ -133,7 +134,7 @@ server.get("/showuser",(req,res)=>{
  })
  server.get("/showart",(req,res)=>{
     var writer=req.query.writer;
-    var sql="SELECT aid,title,left(puttime,9) as puttime FROM article WHERE writer=?";
+    var sql="SELECT aid,title,left(puttime,10) as puttime FROM article WHERE writer=?";
     pool.query(sql,[writer],(err,result)=>{
        if(err)throw err;
        if(result.length==0){
@@ -148,7 +149,7 @@ server.get("/showuser",(req,res)=>{
  })
  server.get("/showcom",(req,res)=>{
     var writer=req.query.writer;
-    var sql="SELECT cid,content,left(puttime,9) as puttime FROM comment WHERE writer=?";
+    var sql="SELECT cid,content,left(puttime,10) as puttime FROM comment WHERE writer=?";
     pool.query(sql,[writer],(err,result)=>{
        if(err)throw err;
        if(result.length==0){
@@ -283,6 +284,21 @@ server.get("/showartcom",(req,res)=>{
   var articleid=req.query.articleid;
   var sql="SELECT * FROM comment where articleid=?";
   pool.query(sql,[articleid],(err,result)=>{
+     if(err)throw err;
+     if(result.length==0){
+        res.send({code:-1,msg:"数据加载失败"});
+     }else{
+        var data=result;
+        console.log(result);
+      res.send({code:1,msg:'数据加载成功',rows:data});
+        
+     }
+  })
+})
+server.get("/showcomid",(req,res)=>{
+  var cid=req.query.cid;
+  var sql="SELECT * FROM comment where cid=?";
+  pool.query(sql,[cid],(err,result)=>{
      if(err)throw err;
      if(result.length==0){
         res.send({code:-1,msg:"数据加载失败"});
