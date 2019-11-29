@@ -8,7 +8,7 @@
         <ul>
           <li v-show="!showlogin" @click='denglu'><a>登录</a></li> 
           <li class="nav-bo" v-show="showlogin==1" @click="tanchaung"><a>welcome! {{uname}}</a></li>
-           <li><a href="">回到顶部</a></li>
+           <li><a >回到顶部</a></li>
             <li @click="back"><a>上一级</a></li>
              <li @click='shou'><a>首页</a></li>
    
