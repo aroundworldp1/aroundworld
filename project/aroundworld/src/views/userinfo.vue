@@ -16,18 +16,18 @@
             <div class="bb"> 
           <ul v-for="( item,i) of cinfo" :key="i">
             <li>{{item.cid}}</li>
-            <li>{{item.content}}</li>
-            <li>{{item.puttime}}</li>
+            <li class='cont'>{{item.content}}</li>
+            <li class='cont'>{{item.puttime}}</li>
             <li>&nbsp;&nbsp;<el-button @click="upcom">修改</el-button>&nbsp;<el-button @click="delcom(i)">删除</el-button></li>
           </ul>  
       </div> 
       <div class="cc"></div>
-      <h2 style="margin-top: 50px;">&nbsp;&nbsp;{{uname}}&nbsp;&nbsp;最近文章</h2>
+      <h2 style="margin-top: 20px;">&nbsp;&nbsp;{{uname}}&nbsp;&nbsp;最近文章</h2>
       <div class="bb"> 
           <ul v-for="(item,i) of ainfo" :key="i">
             <li>{{item.aid}}</li>
-            <li>{{item.title}}</li>
-            <li>{{item.puttime}}</li>
+            <li class='cont'>{{item.title}}</li>
+            <li class='cont'>{{item.puttime}}</li>
             <li>&nbsp;&nbsp;<el-button>修改</el-button>&nbsp;<el-button @click="delart(i)">删除</el-button></li>
           </ul>
       </div> 
@@ -54,11 +54,16 @@ export default {
         var uname=this.uname;  
         this.$router.push({path:'/addcomment',query:{uname:uname}})
       },
-      delcom(i){
-        var cid=this.cinfo[i].cid;
+       delcom(i){
+         var cid=this.cinfo[i].cid;
         var url="delcom";
         var obj={cid:cid};
-        this.axios.get(url,{params:obj}).then(res=>{
+        this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.axios.get(url,{params:obj}).then(res=>{
           if(res.data.code===1){
             this.$message("删除成功")
             this.$router.go(0);
@@ -69,12 +74,23 @@ export default {
         .catch(err=>{
           console.log(err)
         })
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });          
+        });
       },
       delart(i){
         var aid=this.ainfo[i].aid;
         var url="delart";
         var obj={aid:aid};
-        this.axios.get(url,{params:obj}).then(res=>{
+         this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+         this.axios.get(url,{params:obj}).then(res=>{
           if(res.data.code===1){
             this.$message("删除成功");
             this.$router.go(0);
@@ -85,6 +101,13 @@ export default {
         .catch(err=>{
           console.log(err)
         })
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });          
+        });
+
       },
       loaduser(){
         var url='showuser';
@@ -95,7 +118,6 @@ export default {
                     var uinfo=res.data.rows[0]; 
                     this.uinfo=uinfo;
                     console.log(uinfo);
-                    console.log(uinfo.birthday);
                 }
             })
             .catch(err=>{
@@ -110,7 +132,6 @@ export default {
                 if(res.data.code===1){ 
                     var ainfo=res.data.rows; 
                     this.ainfo=ainfo;
-                    this.ainfo=this.ainfo.concat(res.data.rows);
                     console.log(ainfo);
                     console.log(ainfo[0].title);
                 }
@@ -127,9 +148,7 @@ export default {
                 if(res.data.code===1){ 
                     var cinfo=res.data.rows; 
                     this.cinfo=cinfo;
-                    this.cinfo=this.cinfo.concat(res.data.rows);
-                    console.log(cinfo);
-                    console.log(cinfo[0].content);
+        
                 }
             })
             .catch(err=>{
@@ -177,25 +196,40 @@ export default {
     }
     .aa{
       padding: 5%;
-      padding-top: 10%;
       width: 60%;
-      height: 445px;
+      height: 495px;
       border: solid  rgba(97, 48, 48, 0.24) 3px;
     }
     .bb{
       width: 100%;
-      
+      height:200px;
+       overflow:hidden; 
       font-size: 1.2rem;
       color: rgba(133, 87, 27, 0.575);
     }
-    .aa ul{
+    ul{
       list-style: none;
       margin-top: 10px;
       display:flex;
+     flex-direction: row;
+      justify-content: center;
     }
     .aa ul a{
      text-decoration: none;
      color: rgba(37, 71, 71, 0.349);
+    }
+    li{
+      list-style: none;
+        line-height: 50px;
+    }
+    .cont{
+      width:150px;
+      white-space:nowrap; 
+      overflow:hidden; 
+      text-overflow:ellipsis;
+      list-style-position: outside;
+      list-style-type: none;
+      margin-left:30px;
     }
     .cc{
       width: 100%;

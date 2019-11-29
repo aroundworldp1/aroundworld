@@ -69,7 +69,7 @@ server.post("/insert",(req,res)=>{
    var birthday=req.body.birthday;
    var email=req.body.email;
    var phone=req.body.phone;
-   var sql="INSERT INTO user(uname,upwd,gender,birthday,email,phone) values(?,?,?,?,?,?)";
+   var sql="INSERT INTO user(uname,upwd,gender,left(birthday,9) as birthday,email,phone) values(?,?,?,?,?,?)";
    pool.query(sql,[uname,upwd,gender,birthday,email,phone],(err,result)=>{
       if(err)throw err;
       if(result.affectedRows==1){
@@ -87,8 +87,8 @@ server.get("/insertart",(req,res)=>{
   var content=req.query.content;
   var apic=req.query.apic;
   var puttime=req.query.puttime;
-  var sql="INSERT INTO article(writer,spot,title,content,apic,puttime) values(?,?,?,?,?,?)";
-  pool.query(sql,[writer,spot,title,content,apic,puttime],(err,result)=>{
+  var sql="INSERT INTO article(writer,spot,title,content,left(puttime,9) as puttime,apic) values(?,?,?,?,?,?)";
+  pool.query(sql,[writer,spot,title,content,puttime,apic],(err,result)=>{
      if(err)throw err;
      if(result.affectedRows==1){
         res.send({code:1,msg:"发表成功"});
@@ -105,8 +105,8 @@ server.get("/insertcom",(req,res)=>{
   var content=req.query.content;
   var avatar=req.query.avatar;
   var puttime=req.query.puttime;
-  var sql="INSERT INTO comment(writer,spot,articleid,content,avatar,puttime) values(?,?,?,?,?,?)";
-  pool.query(sql,[writer,spot,articleid,content,avatar,puttime],(err,result)=>{
+  var sql="INSERT INTO comment(writer,spot,articleid,content,left(puttime,9) as puttime,avatar) values(?,?,?,?,?,?)";
+  pool.query(sql,[writer,spot,articleid,content,puttime,avatar],(err,result)=>{
      if(err)throw err;
      if(result.affectedRows==1){
         res.send({code:1,msg:"发表成功"});
@@ -118,7 +118,7 @@ server.get("/insertcom",(req,res)=>{
 })
 server.get("/showuser",(req,res)=>{
     var uname=req.query.uname;
-    var sql="SELECT birthday,email,avatar,phone,gender FROM user WHERE uname=?";
+    var sql="SELECT left(birthday,9) as birthday,email,avatar,phone,gender FROM user WHERE uname=?";
     pool.query(sql,[uname],(err,result)=>{
        if(err)throw err;
        if(result.length==0){
@@ -133,7 +133,7 @@ server.get("/showuser",(req,res)=>{
  })
  server.get("/showart",(req,res)=>{
     var writer=req.query.writer;
-    var sql="SELECT aid,title,puttime FROM article WHERE writer=?";
+    var sql="SELECT aid,title,left(puttime,9) as puttime FROM article WHERE writer=?";
     pool.query(sql,[writer],(err,result)=>{
        if(err)throw err;
        if(result.length==0){
@@ -148,7 +148,7 @@ server.get("/showuser",(req,res)=>{
  })
  server.get("/showcom",(req,res)=>{
     var writer=req.query.writer;
-    var sql="SELECT cid,content,puttime FROM comment WHERE writer=?";
+    var sql="SELECT cid,content,left(puttime,9) as puttime FROM comment WHERE writer=?";
     pool.query(sql,[writer],(err,result)=>{
        if(err)throw err;
        if(result.length==0){
